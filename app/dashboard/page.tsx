@@ -24,10 +24,10 @@ export default function DashboardPage() {
           <FundsCount />
         </div>
         <div className="col-start-4 col-end-5 row-start-1 row-end-2 overflow-hidden">
-          <InvestButton />
+          {/* <InvestButton /> */}
         </div>
         <div className="col-start-4 col-end-5 row-start-2 row-end-3 overflow-hidden">
-          <WithdrawButton />
+          {/* <WithdrawButton /> */}
         </div>
         <div className="col-start-1 col-end-5 row-start-3 row-end-7">
           <LineGraphCard />

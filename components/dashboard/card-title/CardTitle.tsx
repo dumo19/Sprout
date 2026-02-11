@@ -14,25 +14,29 @@ type TitleProp = {
   title: string;
 };
 
+const ICON_COLOR: string = "white"
+const ICON_BG_COLOR: string = "tertiary"
+
 export default function CardTitle({ icon, title }: TitleProp) {
+  
   function getIcon(icon: string) {
     switch (icon) {
       case 'layers':
-        return <Layers />;
+        return <Layers color={ICON_COLOR}/>;
       case 'coins':
-        return <Coins />;
+        return <Coins color={ICON_COLOR}/>;
       case 'chart-line':
-        return <ChartLine />;
+        return <ChartLine color={ICON_COLOR}/>;
       case 'chart-pie':
-        return <ChartPie />;
+        return <ChartPie color={ICON_COLOR}/>;
       case 'table':
-        return <Table />;
+        return <Table color={ICON_COLOR}/>;
       case 'alert-circle':
-        return <AlertCircle />;
+        return <AlertCircle color={ICON_COLOR}/>;
       case 'clock':
-        return <Clock />;
+        return <Clock color={ICON_COLOR}/>;
       case 'goal':
-        return <Goal />;
+        return <Goal color={ICON_COLOR}/>;
       default:
         return null;
     }
@@ -40,10 +44,10 @@ export default function CardTitle({ icon, title }: TitleProp) {
 
   return (
     <div className="flex flex-row items-center">
-      <div className="bg-blue-300 h-8 w-8 rounded-md flex items-center justify-center ">
+      <div className={`bg-${ICON_BG_COLOR} h-8 w-8 rounded-md flex items-center justify-center `}>
         {getIcon(icon)}
       </div>
-      <div className="text-lg font-semibold pl-2 text-gray-600">{title}</div>
+      <div className="text-lg font-semibold pl-2 text-tertiary/75">{title}</div>
     </div>
   );
 }

@@ -33,12 +33,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
+        <div className='font-sans text-tertiary'>
+          {children}
+
+        </div>
         {/* <div className="flex flex-col h-full"> */}
         {/* <NavBar /> */}
 
         {/* Content area */}
         {/* <main className="flex-1 overflow-hidden"> */}
-        {children}
         {/* </main> */}
         {/* </div> */}
       </body>
