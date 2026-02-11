@@ -7,7 +7,11 @@ export default function FundsCount() {
     <div className="flex flex-col h-full w-full p-2">
       <CardTitle icon="layers" title="Funds" />
 
-      <div className="flex-1 flex items-center justify-center text-5xl font-bold"></div>
+      <div className="flex-1 flex items-center justify-center">
+         <div className='text-4xl font-bold text-tertiary'>
+            23
+          </div>
+      </div>
     </div>
   );
 }

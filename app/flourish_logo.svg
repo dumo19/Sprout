@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 550">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #43a047;
+      }
+
+      .cls-2 {
+        fill: #ffca3a;
+      }
+
+      .cls-3 {
+        fill: #111827;
+      }
+    </style>
+  </defs>
+  <g id="Layer_5_copy" data-name="Layer 5 copy">
+    <g>
+      <rect class="cls-3" width="550" height="550" rx="40" ry="40"/>
+      <g>
+        <path class="cls-1" d="M262.5,62.5c-69.04,0-125,55.96-125,125h0v300h0c69.04,0,125-55.96,125-125h0V62.5h0Z"/>
+        <g>
+          <rect class="cls-2" x="287.5" y="62.5" width="125" height="125" rx="62.5" ry="62.5"/>
+          <rect class="cls-2" x="287.5" y="212.5" width="125" height="125" rx="62.5" ry="62.5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

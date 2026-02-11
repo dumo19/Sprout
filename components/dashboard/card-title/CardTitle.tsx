@@ -44,7 +44,7 @@ export default function CardTitle({ icon, title }: TitleProp) {
 
   return (
     <div className="flex flex-row items-center">
-      <div className={`bg-${ICON_BG_COLOR} h-8 w-8 rounded-md flex items-center justify-center `}>
+      <div className={`bg-tertiary h-8 w-8 rounded-md flex items-center justify-center`}>
         {getIcon(icon)}
       </div>
       <div className="text-lg font-semibold pl-2 text-tertiary/75">{title}</div>

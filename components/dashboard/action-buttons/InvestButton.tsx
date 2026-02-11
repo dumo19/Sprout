@@ -1,6 +1,7 @@
 'use client';
 
 import { ChevronRight } from 'lucide-react';
+import CardTitle from '../card-title/CardTitle';
 
 export default function InvestButton() {
   function handleClick() {
@@ -11,8 +12,8 @@ export default function InvestButton() {
   return (
     <button onClick={handleClick} className="flex-1 bg-green-300 h-full w-full">
       <div className="flex items-center justify-between px-2">
-        <div className="font-semibold text-base pl-1">Invest</div>
-        <ChevronRight size={24} className="" />
+        <div className="text-lg font-semibold pl-2 text-tertiary/75">Invest</div>
+        <ChevronRight size={24} color={"#111827"} />
       </div>
     </button>
   );
