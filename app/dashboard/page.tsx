@@ -13,6 +13,8 @@ import GoalsCard from '@/components/dashboard/dashboard-cards/GoalsCard';
 
 export default function DashboardPage() {
   return (
+    <div>
+
     <main className="h-screen flex flex-col">
       <NavBar />
       <div className="px-30 pt-5 font-semibold text-2xl">Dashboard</div>
@@ -23,31 +25,36 @@ export default function DashboardPage() {
         <div className="col-start-3 col-end-4 row-start-1 row-end-3 overflow-hidden">
           <FundsCount />
         </div>
-        <div className="col-start-4 col-end-5 row-start-1 row-end-2 overflow-hidden">
+        <div className="col-start-4 col-end-5 row-start-1 row-end-2 overflow-hidden action-button">
           <InvestButton />
         </div>
-        <div className="col-start-4 col-end-5 row-start-2 row-end-3 overflow-hidden">
+        <div className="col-start-4 col-end-5 row-start-2 row-end-3 overflow-hidden action-button">
           <WithdrawButton />
         </div>
-        <div className="col-start-1 col-end-5 row-start-3 row-end-7">
+        <div className="col-start-1 col-end-5 row-start-3 row-end-11">
           <LineGraphCard />
         </div>
-        <div className="col-start-5 col-end-7 row-start-1 row-end-7">
+        <div className="col-start-5 col-end-7 row-start-3 row-end-7">
           <PortfolioBreakdownCard />
         </div>
-        <div className="col-start-1 col-end-5 row-start-7 row-end-11">
+        {/* <div className="col-start-1 col-end-5 row-start-7 row-end-11">
           <PositionsTableCard />
-        </div>
+        </div> */}
         <div className="col-start-5 col-end-7 row-start-7 row-end-11">
           <RecentActivityCard />
         </div>
-        <div className="col-start-7 col-end-9 row-start-1 row-end-5">
+        <div className="col-start-7 col-end-9 row-start-3 row-end-7">
           <RiskCard />
         </div>
-        <div className="col-start-7 col-end-9 row-start-5 row-end-11">
+        <div className="col-start-7 col-end-9 row-start-7 row-end-11">
           <GoalsCard />
         </div>
       </div>
     </main>
+    <div className='bg-gray-200 h-50'>
+      footer
+    </div>
+    </div>
+
   );
 }

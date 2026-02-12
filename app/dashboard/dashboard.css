@@ -1,9 +1,13 @@
 @import "tailwindcss";
 
 .grid-container > div {
-  background-color: rgb(250, 250, 250);
+  /* background-color: rgb(250, 250, 250); */
   border-radius: 10;
-  /* border: 2px rgb(230, 230, 230) solid; */
-  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.08);
+  border: 2px rgb(230, 230, 230) solid;
+  /* box-shadow: 0 8px 10px rgba(0, 0, 0, 0.08); */
 
+}
+
+.grid-container > .action-button {
+  border: none;
 }

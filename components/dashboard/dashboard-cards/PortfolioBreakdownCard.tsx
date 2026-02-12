@@ -6,7 +6,7 @@ export default function PortfolioBreakdownCard() {
     <div className="flex flex-col h-full w-full p-2">
       <CardTitle icon="chart-pie" title="Portfolio Breakdown" />
 
-      <PortfolioPieChart/>
+      {/* <PortfolioPieChart/> */}
     </div>
   );
 }
