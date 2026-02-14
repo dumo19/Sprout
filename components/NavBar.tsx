@@ -3,14 +3,15 @@ import { SignInButtonGitHub } from './auth/SignInButtonGitHub';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Search } from 'lucide-react';
+import { SignOutButton } from './auth/SignOutButton';
 
 export default async function NavBar() {
   const session = await auth();
 
   return (
     <nav className="flex items-center justify-between px-30 py-5 border-b-2 border-gray-200">
-      <div className='flex flex-row'>
-        <Image src={"/flourish_wordmark.svg"} alt={"flouris"} height={80} width={180}/>
+      <div className='flex flex-row gap-12 text-sm font-semibold'>
+        <Image src={"/flourish_wordmark.svg"} alt={"flourish"} height={80} width={180}/>
       </div>
       {/* <div>
         {session && (
@@ -22,9 +23,12 @@ export default async function NavBar() {
 
         )}
       </div> */}
-      <div>
+      <div className='text-sm font-semibold'>
         {!session ? (
-          <SignInButtonGitHub /> 
+          <Link href="/sign-in">
+            Sign In
+          </Link>
+          // <SignInButtonGitHub /> 
         ) : (
           // <div>signed in</div>
           <div className='flex flex-row gap-12 text-sm font-semibold'>
@@ -43,6 +47,8 @@ export default async function NavBar() {
             <Link href="/profile">
               Account
             </Link>
+
+            <SignOutButton/>
           </div>
         )}
         </div>
