@@ -15,6 +15,8 @@ import GoalsCard from '@/components/dashboard/dashboard-cards/GoalsCard';
 import { useEffect, useState } from 'react';
 import ProtfolioBalanceCard from '@/components/dashboard/dashboard-cards/PortfolioBalanceCard';
 import SideNavBar from '@/components/SideNavBar';
+import dummyData from '@/dummy-data/dummy-user.json';
+import PortfolioValueCard from '@/components/dashboard/dashboard-cards/PortfolioValueCard';
 
 type LayoutMode =
   | 'default'
@@ -79,13 +81,31 @@ export default function DashboardPage() {
   const [layout, setLayout] = useState<LayoutMode>('default');
 
   return (
-    <div className='h-screen flex flex-row'>
-      <SideNavBar/>
-      <div className='flex-1 bg-blue-200'>
-        Dash
+    <main className="bg-[#F7F7F2] px-15 py-10">
+      <h1 className="text-4xl">
+        Good Morning, <span className="">{dummyData.first_name}.</span>
+      </h1>
+      <p>Your money is working for you.</p>
+
+      <div className="grid grid-cols-3 grid-rows-1 gap-8 pb-8">
+        <div className="bg-gray-300 rounded-xl overflow-hidden">
+          <PortfolioValueCard />
+        </div>
+        <div className="bg-gray-300">a</div>
+        <div className="bg-gray-300">a</div>
       </div>
-    </div>
-  )
+
+      <div className="grid grid-cols-2 grid-rows-1 gap-8 pb-8">
+        <div className="bg-gray-300">a</div>
+        <div className="bg-gray-300">a</div>
+      </div>
+
+      <div className="grid grid-cols-2 grid-rows-1 gap-8">
+        <div className="bg-gray-300">a</div>
+        <div className="bg-gray-300">a</div>
+      </div>
+    </main>
+  );
 
   // return (
   //   <div>
@@ -101,7 +121,7 @@ export default function DashboardPage() {
   //         <div className='col-start-5 col-end-7 row-start-3 row-end-5'></div>
   //       </div>
   //       {/* <div className="flex-1 grid grid-cols-8 grid-rows-10 gap-5 px-30 py-5 grid-container">
-          
+
   //         <div className="group/balance col-start-1 col-end-3 row-start-1 row-end-3 ">
   //           <TotalBalanceCard />
   //         </div>

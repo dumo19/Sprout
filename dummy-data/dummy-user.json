@@ -3,8 +3,9 @@
   "last_name": "Doe",
   "email" : "john.doe@example.com",
   "portfolio": {
-    "total_amount": 4578.74,
+    "total_amount": 14578.74,
     "today_change": 36.67,
+    "amount_invested": 10000,
     "breakdown": {
       "stocks": 0.65,
       "bonds": 0.20,

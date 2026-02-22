@@ -6,35 +6,11 @@ import {
   Crimson_Pro,
   Manrope,
   DM_Sans,
-  DM_Serif_Text
+  DM_Serif_Text,
 } from 'next/font/google';
 import './globals.css';
 import NavBar from '@/components/NavBar';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-});
-
-const crimsonPro = Crimson_Pro({
-  variable: '--font-crimson-pro',
-  subsets: ['latin'],
-});
-
-const manrope = Manrope({
-  variable: '--font-manrope',
-  subsets: ['latin'],
-});
+import SideNavBar from '@/components/SideNavBar';
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -42,7 +18,7 @@ const dmSans = DM_Sans({
 });
 
 const dmSerifText = DM_Serif_Text({
-  weight: "400",
+  weight: '400',
   variable: '--font-dm-serif-text',
   subsets: ['latin'],
 });
@@ -63,9 +39,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} ${dmSerifText.variable} antialiased`}
+        className={`flex flex-row ${dmSans.variable} ${dmSerifText.variable} antialiased`}
       >
-        <div className="font-sans text-tertiary">{children}</div>
+        <SideNavBar />
+        <div className="flex-1 ml-55">{children}</div>
       </body>
     </html>
   );
