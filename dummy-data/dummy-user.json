@@ -1,0 +1,31 @@
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email" : "john.doe@example.com",
+  "portfolio": {
+    "total_amount": 4578.74,
+    "today_change": 36.67,
+    "breakdown": {
+      "stocks": 0.65,
+      "bonds": 0.20,
+      "treasuries": 0.10,
+      "other": 0.05
+    },
+    "day_change": [
+      {"date": "Jan 1", "value": 3456.67},
+      {"date": "Feb 1", "value": 3521.34},
+      {"date": "Mar 1", "value": 3604.89},
+      {"date": "Apr 1", "value": 3688.45},
+      {"date": "May 1", "value": 3749.12},
+      {"date": "Jun 1", "value": 3823.77},
+      {"date": "Jul 1", "value": 3915.28},
+      {"date": "Aug 1", "value": 4022.63},
+      {"date": "Sep 1", "value": 4134.90},
+      {"date": "Oct 1", "value": 4260.55},
+      {"date": "Nov 1", "value": 4398.21},
+      {"date": "Dec 1", "value": 4578.74}
+    ]
+    
+  },
+  "risk": "moderate"
+}

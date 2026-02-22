@@ -13,6 +13,8 @@ import RiskCard from '@/components/dashboard/dashboard-cards/RiskCard';
 import RecentActivityCard from '@/components/dashboard/dashboard-cards/RecentActivityCard';
 import GoalsCard from '@/components/dashboard/dashboard-cards/GoalsCard';
 import { useEffect, useState } from 'react';
+import ProtfolioBalanceCard from '@/components/dashboard/dashboard-cards/PortfolioBalanceCard';
+import SideNavBar from '@/components/SideNavBar';
 
 type LayoutMode =
   | 'default'
@@ -77,84 +79,89 @@ export default function DashboardPage() {
   const [layout, setLayout] = useState<LayoutMode>('default');
 
   return (
-    <div>
-      <main className="h-screen flex flex-col">
-        <NavBar />
-        <div className="px-30 pt-5 font-semibold text-2xl">Dashboard</div>
-        <div className="flex-1 grid grid-cols-8 grid-rows-10 gap-5 px-30 py-5 grid-container">
-          
-          {/* top */}
-          <div className="group/balance col-start-1 col-end-3 row-start-1 row-end-3 ">
-            <TotalBalanceCard />
-          </div>
-
-          <div className="col-start-4 col-end-5 row-start-1 row-end-2 overflow-hidden action-button">
-            <InvestButton />
-          </div>
-
-          <div className="col-start-4 col-end-5 row-start-2 row-end-3 overflow-hidden action-button">
-            <WithdrawButton />
-          </div>
-
-          {/* bottom */}
-          {/* {layout === 'default' || layout === 'growth' ? ( */}
-            <div
-              onClick={() =>
-                setLayout(layout === 'growth' ? 'default' : 'growth')
-              }
-              className={`group ${layoutConfig[layout].growth} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-            >
-              <LineGraphCard />
-            </div>
-          {/* ) : null} */}
-
-          {/* {layout === 'default' || layout === 'breakdown' ? ( */}
-            <div
-              onClick={() =>
-                setLayout(layout === 'breakdown' ? 'default' : 'breakdown')
-              }
-              className={`group ${layoutConfig[layout].breakdown} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-            >
-              <PortfolioBreakdownCard />
-            </div>
-          {/* ) : null} */}
-
-          {/* {layout === 'default' || layout === 'activity' ? ( */}
-            <div
-              onClick={() =>
-                setLayout(layout === 'activity' ? 'default' : 'activity')
-              }
-              className={`group ${layoutConfig[layout].activity} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-            >
-              <RecentActivityCard />
-            </div>
-          {/* ) : null} */}
-
-          {/* {layout === 'default' || layout === 'risk' ? ( */}
-            <div
-              onClick={() =>
-                setLayout(layout === 'risk' ? 'default' : 'risk')
-              }
-              className={`group ${layoutConfig[layout].risk} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-            >
-              <RiskCard />
-            </div>
-          {/* ) : null} */}
-
-          {/* {layout === 'default' || layout === 'goals' ? ( */}
-            <div
-              onClick={() =>
-                setLayout(layout === 'goals' ? 'default' : 'goals')
-              }
-              className={`group ${layoutConfig[layout].goals} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-            >
-              <GoalsCard />
-            </div>
-          {/* ) : null} */}
-
-        </div>
-      </main>
-      <div className="bg-gray-200 h-50">footer</div>
+    <div className='h-screen flex flex-row'>
+      <SideNavBar/>
+      <div className='flex-1 bg-blue-200'>
+        Dash
+      </div>
     </div>
-  );
+  )
+
+  // return (
+  //   <div>
+  //     <main className="h-screen flex flex-col">
+  //       <NavBar />
+  //       <div className="px-15 pt-5 font-semibold text-2xl">Dashboard</div>
+  //       <div className='flex-1 grid grid-cols-6 grid-rows-4 gap-5 grid-container px-15 py-5'>
+  //         <div className='col-start-1 col-end-5 row-start-1 row-end-4'>
+  //           <ProtfolioBalanceCard/>
+  //         </div>
+  //         <div className='col-start-1 col-end-5 row-start-4 row-end-5'></div>
+  //         <div className='col-start-5 col-end-7 row-start-1 row-end-3'></div>
+  //         <div className='col-start-5 col-end-7 row-start-3 row-end-5'></div>
+  //       </div>
+  //       {/* <div className="flex-1 grid grid-cols-8 grid-rows-10 gap-5 px-30 py-5 grid-container">
+          
+  //         <div className="group/balance col-start-1 col-end-3 row-start-1 row-end-3 ">
+  //           <TotalBalanceCard />
+  //         </div>
+
+  //         <div className="col-start-4 col-end-5 row-start-1 row-end-2 overflow-hidden action-button">
+  //           <InvestButton />
+  //         </div>
+
+  //         <div className="col-start-4 col-end-5 row-start-2 row-end-3 overflow-hidden action-button">
+  //           <WithdrawButton />
+  //         </div>
+
+  //           <div
+  //             onClick={() =>
+  //               setLayout(layout === 'growth' ? 'default' : 'growth')
+  //             }
+  //             className={`group ${layoutConfig[layout].growth} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
+  //           >
+  //             <LineGraphCard />
+  //           </div>
+
+  //           <div
+  //             onClick={() =>
+  //               setLayout(layout === 'breakdown' ? 'default' : 'breakdown')
+  //             }
+  //             className={`group ${layoutConfig[layout].breakdown} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
+  //           >
+  //             <PortfolioBreakdownCard />
+  //           </div>
+
+  //           <div
+  //             onClick={() =>
+  //               setLayout(layout === 'activity' ? 'default' : 'activity')
+  //             }
+  //             className={`group ${layoutConfig[layout].activity} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
+  //           >
+  //             <RecentActivityCard />
+  //           </div>
+
+  //           <div
+  //             onClick={() =>
+  //               setLayout(layout === 'risk' ? 'default' : 'risk')
+  //             }
+  //             className={`group ${layoutConfig[layout].risk} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
+  //           >
+  //             <RiskCard />
+  //           </div>
+
+  //           <div
+  //             onClick={() =>
+  //               setLayout(layout === 'goals' ? 'default' : 'goals')
+  //             }
+  //             className={`group ${layoutConfig[layout].goals} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
+  //           >
+  //             <GoalsCard />
+  //           </div>
+
+  //       </div> */}
+  //     </main>
+  //     <div className="bg-gray-200 h-50">footer</div>
+  //   </div>
+  // );
 }
