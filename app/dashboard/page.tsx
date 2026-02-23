@@ -49,7 +49,7 @@ export default function DashboardPage() {
           </Link>
           <Link
             href="/invest"
-            className="bg-primary px-5 py-3 rounded-full text-white font-semibold"
+            className="bg-primary border-primary border-2 px-5 py-3 rounded-full text-white font-semibold"
           >
             Add Money
           </Link>
@@ -57,7 +57,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-3 grid-rows-1 gap-8 mb-8">
-        <div className="bg-white border-2 border-primary rounded-2xl overflow-hidden">
+        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
           <PortfolioValueCard />
         </div>
         <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
@@ -79,10 +79,10 @@ export default function DashboardPage() {
 
       <div className="grid grid-cols-2 grid-rows-1 gap-8">
         <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
-          placeholder
+          <h1>Fund Breakdown</h1>
         </div>
         <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
-          placeholder
+          <h1>Recent Activity</h1>
         </div>
       </div>
     </main>

@@ -12,7 +12,7 @@ const PCT_CHANGE = DIFFERENCE / TOTAL_AMOUNT;
 
 export default function PortfolioValueCard() {
   return (
-    <div className="flex flex-col gap-2 p-5 bg-primary">
+    <div className="flex flex-col gap-2 p-5 bg-linear-to-br from-tertiary to-primary">
       <p className="text-white font-semibold text-sm">TOTAL PORTFOLIO VALUE</p>
       <h1 className="text-5xl text-white">
         {formatCurrencyFull(TOTAL_AMOUNT)}
@@ -20,7 +20,7 @@ export default function PortfolioValueCard() {
       <p className="text-white text-sm">
         Started from {formatCurrencyFull(AMOUNT_INVESTED)}
       </p>
-      <div className="flex flex-row gap-2 bg-gray-100 w-fit px-3 py-0.5 rounded-full text-sm">
+      <div className="flex flex-row gap-2 bg-white/20 font-semibold text-white w-fit px-3 py-0.5 rounded-full text-sm">
         <p>{formatCurrencyChangeFull(DIFFERENCE)}</p>
         <p>{`(${formatPercentChange(PCT_CHANGE)})`}</p>
       </div>
