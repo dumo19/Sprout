@@ -1,4 +1,4 @@
-import LineGraph from "../graphs/LineGraph";
+import LineGraph from '../components/dashboard/graphs/PortfolioGrowthChart';
 
 export default function ProtfolioBalanceCard() {
   return (
@@ -6,8 +6,7 @@ export default function ProtfolioBalanceCard() {
       {/* <div>
         My Portfolio
       </div> */}
-      <LineGraph/>
+      <LineGraph />
     </main>
-    
-  )
+  );
 }

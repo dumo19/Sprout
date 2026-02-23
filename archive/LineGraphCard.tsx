@@ -1,5 +1,5 @@
-import CardTitle from '../card-title/CardTitle';
-import LineGraph from '../graphs/LineGraph';
+import CardTitle from './card-title/CardTitle';
+import LineGraph from '../components/dashboard/graphs/PortfolioGrowthChart';
 
 export default function LineGraphCard() {
   return (
@@ -7,7 +7,7 @@ export default function LineGraphCard() {
       <CardTitle icon="chart-line" title="Portfolio Growth" />
 
       <div className="flex-1 flex items-center justify-center text-5xl font-bold"></div>
-      <LineGraph/>
+      <LineGraph />
     </div>
   );
 }

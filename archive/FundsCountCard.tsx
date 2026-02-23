@@ -1,5 +1,5 @@
 import { Layers } from 'lucide-react';
-import CardTitle from '../card-title/CardTitle';
+import CardTitle from './card-title/CardTitle';
 
 export default function FundsCount() {
   const count = 24;
@@ -8,9 +8,7 @@ export default function FundsCount() {
       <CardTitle icon="layers" title="Funds" />
 
       <div className="flex-1 flex items-center justify-center">
-         <div className='text-4xl font-bold text-tertiary'>
-            23
-          </div>
+        <div className="text-4xl font-bold text-tertiary">23</div>
       </div>
     </div>
   );

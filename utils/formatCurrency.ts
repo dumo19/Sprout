@@ -22,6 +22,12 @@ export const formatCurrencyChangeFull = (v: number): string => {
   return `-${formattedChange}`;
 };
 
+export const formatCurrencyChangeRounded = (v: number): string => {
+  const formattedChange = formatCurrencyRounded(v);
+  if (v >= 0) return `+${formattedChange}`;
+  return `-${formattedChange}`;
+};
+
 export const formatPercentChange = (pctChange: number): string => {
   pctChange *= 100;
   const sign = pctChange >= 0 ? '+' : '-';

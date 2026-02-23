@@ -4,7 +4,8 @@ export interface DataPoint {
 }
 
 export interface PortfolioChartProps {
-  data?: DataPoint[]
+  data?: DataPoint[];
+  range: Range
 }
 
-export type Range = '3M' | '6M' | '1Y' | 'ALL';
+export type Range = '1D' | '1M' | '3M' | '6M' | '1Y' | 'ALL';

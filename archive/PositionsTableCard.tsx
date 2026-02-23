@@ -1,9 +1,9 @@
-import CardTitle from '../card-title/CardTitle';
+import CardTitle from './card-title/CardTitle';
 
-export default function RiskCard() {
+export default function PositionsTableCard() {
   return (
     <div className="flex flex-col h-full w-full p-2">
-      <CardTitle icon="alert-circle" title="Portfolio Risk" />
+      <CardTitle icon="table" title="Positions Table" />
 
       <div className="flex-1 flex items-center justify-center text-5xl font-bold"></div>
     </div>

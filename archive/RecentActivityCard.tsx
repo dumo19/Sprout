@@ -1,4 +1,4 @@
-import CardTitle from '../card-title/CardTitle';
+import CardTitle from './card-title/CardTitle';
 
 export default function RecentActivityCard() {
   return (

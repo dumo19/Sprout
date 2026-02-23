@@ -100,14 +100,15 @@ export default function SideNavBar() {
       <div className='flex flex-row justify-between items-center mb-5'>
         <div className="flex flex-row gap-3 items-center">
           <img
-            src="/flourish_white_icon.svg"
+            src="/flourish_white_flower.svg"
             alt="flourish"
             height={30}
             width={30}
           />
-          <img src="/flourish_text.svg" alt="flourish" height={50} width={80} />
+          {/* <img src="/flourish_text.svg" alt="flourish" height={50} width={100} /> */}
+          {/* <h1 className='text-white text-4xl'>flourish</h1> */}
         </div>
-        <PanelLeft color={ICON_COLOR} size={18}/>
+        <PanelLeft color={ICON_COLOR} size={ICON_SIZE}/>
       </div>
 
       {/* <div className="w-full h-px bg-white/65 mb-5" /> */}

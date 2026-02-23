@@ -9,7 +9,7 @@ import {
   DM_Serif_Text,
 } from 'next/font/google';
 import './globals.css';
-import NavBar from '@/components/NavBar';
+import NavBar from '@/archive/NavBar';
 import SideNavBar from '@/components/SideNavBar';
 
 const dmSans = DM_Sans({

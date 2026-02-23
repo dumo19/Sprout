@@ -1,32 +1,31 @@
 {
   "first_name": "John",
   "last_name": "Doe",
-  "email" : "john.doe@example.com",
+  "email": "john.doe@example.com",
   "portfolio": {
     "total_amount": 14578.74,
     "today_change": 36.67,
     "amount_invested": 10000,
     "breakdown": {
       "stocks": 0.65,
-      "bonds": 0.20,
-      "treasuries": 0.10,
+      "bonds": 0.2,
+      "treasuries": 0.1,
       "other": 0.05
     },
     "day_change": [
-      {"date": "Jan 1", "value": 3456.67},
-      {"date": "Feb 1", "value": 3521.34},
-      {"date": "Mar 1", "value": 3604.89},
-      {"date": "Apr 1", "value": 3688.45},
-      {"date": "May 1", "value": 3749.12},
-      {"date": "Jun 1", "value": 3823.77},
-      {"date": "Jul 1", "value": 3915.28},
-      {"date": "Aug 1", "value": 4022.63},
-      {"date": "Sep 1", "value": 4134.90},
-      {"date": "Oct 1", "value": 4260.55},
-      {"date": "Nov 1", "value": 4398.21},
-      {"date": "Dec 1", "value": 4578.74}
+      { "date": "2025-01-01", "value": 3456.67 },
+      { "date": "2025-02-01", "value": 3389.23 },
+      { "date": "2025-03-01", "value": 3521.88 },
+      { "date": "2025-04-01", "value": 3478.45 },
+      { "date": "2025-05-01", "value": 3612.34 },
+      { "date": "2025-06-01", "value": 3574.91 },
+      { "date": "2025-07-01", "value": 3698.56 },
+      { "date": "2025-08-01", "value": 3645.23 },
+      { "date": "2025-09-01", "value": 3821.77 },
+      { "date": "2025-10-01", "value": 3763.44 },
+      { "date": "2025-11-01", "value": 3934.88 },
+      { "date": "2025-12-01", "value": 4578.74 }
     ]
-    
   },
   "risk": "moderate"
 }

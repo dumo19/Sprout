@@ -1,187 +1,90 @@
 'use client';
 
-import NavBar from '@/components/NavBar';
+import NavBar from '@/archive/NavBar';
 import './dashboard.css';
-import TotalBalanceCard from '@/components/dashboard/dashboard-cards/TotalBalanceCard';
-import InvestButton from '@/components/dashboard/action-buttons/InvestButton';
-import WithdrawButton from '@/components/dashboard/action-buttons/WithdrawButton';
-import FundsCount from '@/components/dashboard/dashboard-cards/FundsCountCard';
-import LineGraphCard from '@/components/dashboard/dashboard-cards/LineGraphCard';
+import TotalBalanceCard from '@/archive/TotalBalanceCard';
+// import InvestButton from '@/components/dashboard/action-buttons/InvestButton';
+// import WithdrawButton from '@/components/dashboard/action-buttons/WithdrawButton';
+import FundsCount from '@/archive/FundsCountCard';
+import LineGraphCard from '@/archive/LineGraphCard';
 import PortfolioBreakdownCard from '@/components/dashboard/dashboard-cards/PortfolioBreakdownCard';
-import PositionsTableCard from '@/components/dashboard/dashboard-cards/PositionsTableCard';
-import RiskCard from '@/components/dashboard/dashboard-cards/RiskCard';
-import RecentActivityCard from '@/components/dashboard/dashboard-cards/RecentActivityCard';
-import GoalsCard from '@/components/dashboard/dashboard-cards/GoalsCard';
+import PositionsTableCard from '@/archive/PositionsTableCard';
+import RiskCard from '@/archive/RiskCard';
+import RecentActivityCard from '@/archive/RecentActivityCard';
+import GoalsCard from '@/archive/GoalsCard';
 import { useEffect, useState } from 'react';
-import ProtfolioBalanceCard from '@/components/dashboard/dashboard-cards/PortfolioBalanceCard';
+import ProtfolioBalanceCard from '@/archive/PortfolioBalanceCard';
 import SideNavBar from '@/components/SideNavBar';
 import dummyData from '@/dummy-data/dummy-user.json';
 import PortfolioValueCard from '@/components/dashboard/dashboard-cards/PortfolioValueCard';
+import TotalInvestedCard from '@/components/dashboard/dashboard-cards/TotalInvestedCard';
+import TotalReturnsCard from '@/components/dashboard/dashboard-cards/TotalReturnsCard';
+import PortfolioGrowthCard from '@/components/dashboard/dashboard-cards/PortfolioGrowthCard';
+import Link from 'next/link';
 
-type LayoutMode =
-  | 'default'
-  | 'growth'
-  | 'breakdown'
-  | 'risk'
-  | 'activity'
-  | 'goals';
+function makeGreeting(): string {
+  const hour = new Date().getHours();
 
-type CardKey = 'growth' | 'breakdown' | 'activity' | 'risk' | 'goals';
-
-const layoutConfig: Record<LayoutMode, Record<CardKey, string>> = {
-  default: {
-    growth: 'col-start-1 col-end-5 row-start-3 row-end-11',
-    breakdown: 'col-start-5 col-end-7 row-start-3 row-end-7',
-    activity: 'col-start-5 col-end-7 row-start-7 row-end-11',
-    risk: 'col-start-7 col-end-9 row-start-3 row-end-7',
-    goals: 'col-start-7 col-end-9 row-start-7 row-end-11',
-  },
-  growth: {
-    growth: 'col-start-1 col-end-9 row-start-3 row-end-11',
-    breakdown: 'hidden',
-    activity: 'hidden',
-    risk: 'hidden',
-    goals: 'hidden',
-  },
-  breakdown: {
-    growth: 'hidden',
-    breakdown: 'col-start-1 col-end-9 row-start-3 row-end-11',
-    activity: 'hidden',
-    risk: 'hidden',
-    goals: 'hidden',
-  },
-  activity: {
-    growth: 'hidden',
-    breakdown: 'hidden',
-    activity: 'col-start-1 col-end-9 row-start-3 row-end-11',
-    risk: 'hidden',
-    goals: 'hidden',
-  },
-  risk: {
-    growth: 'hidden',
-    breakdown: 'hidden',
-    activity: 'hidden',
-    risk: 'col-start-1 col-end-9 row-start-3 row-end-11',
-    goals: 'hidden',
-  },
-  goals: {
-    growth: 'hidden',
-    breakdown: 'hidden',
-    activity: 'hidden',
-    risk: 'hidden',
-    goals: 'col-start-1 col-end-9 row-start-3 row-end-11',
-  },
-};
-
-// function CardWrapper({ children }: Readonly<{ children: React.ReactNode }>) {
-//   return <div className="group h-full">{children}</div>;
-// }
+  if (hour < 12) return 'Good Morning';
+  if (hour < 17) return 'Good Afternoon';
+  return 'Good Evening';
+}
 
 export default function DashboardPage() {
-  const [layout, setLayout] = useState<LayoutMode>('default');
-
   return (
-    <main className="bg-[#F7F7F2] px-15 py-10">
-      <h1 className="text-4xl">
-        Good Morning, <span className="">{dummyData.first_name}.</span>
-      </h1>
-      <p>Your money is working for you.</p>
-
-      <div className="grid grid-cols-3 grid-rows-1 gap-8 pb-8">
-        <div className="bg-gray-300 rounded-xl overflow-hidden">
-          <PortfolioValueCard />
+    <main className="bg-[#F7F7F2] px-20 py-10 min-h-screen">
+      <div className="mb-10 flex flex-row justify-between items-center">
+        <div>
+          <h1 className="text-4xl">
+            {makeGreeting()}, <span className="">{dummyData.first_name}.</span>
+          </h1>
+          <p>Your money is working for you.</p>
         </div>
-        <div className="bg-gray-300">a</div>
-        <div className="bg-gray-300">a</div>
+        <div className="flex flex-row items-center gap-5">
+          <Link
+            href="/invest"
+            className="border-primary border-2 px-5 py-3 rounded-full font-semibold text-primary"
+          >
+            Withdraw
+          </Link>
+          <Link
+            href="/invest"
+            className="bg-primary px-5 py-3 rounded-full text-white font-semibold"
+          >
+            Add Money
+          </Link>
+        </div>
       </div>
 
-      <div className="grid grid-cols-2 grid-rows-1 gap-8 pb-8">
-        <div className="bg-gray-300">a</div>
-        <div className="bg-gray-300">a</div>
+      <div className="grid grid-cols-3 grid-rows-1 gap-8 mb-8">
+        <div className="bg-white border-2 border-primary rounded-2xl overflow-hidden">
+          <PortfolioValueCard />
+        </div>
+        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+          <TotalInvestedCard />
+        </div>
+        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+          <TotalReturnsCard />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 grid-rows-1 gap-8 mb-8">
+        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+          <PortfolioGrowthCard />
+        </div>
+        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+          <PortfolioBreakdownCard />
+        </div>
       </div>
 
       <div className="grid grid-cols-2 grid-rows-1 gap-8">
-        <div className="bg-gray-300">a</div>
-        <div className="bg-gray-300">a</div>
+        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+          placeholder
+        </div>
+        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+          placeholder
+        </div>
       </div>
     </main>
   );
-
-  // return (
-  //   <div>
-  //     <main className="h-screen flex flex-col">
-  //       <NavBar />
-  //       <div className="px-15 pt-5 font-semibold text-2xl">Dashboard</div>
-  //       <div className='flex-1 grid grid-cols-6 grid-rows-4 gap-5 grid-container px-15 py-5'>
-  //         <div className='col-start-1 col-end-5 row-start-1 row-end-4'>
-  //           <ProtfolioBalanceCard/>
-  //         </div>
-  //         <div className='col-start-1 col-end-5 row-start-4 row-end-5'></div>
-  //         <div className='col-start-5 col-end-7 row-start-1 row-end-3'></div>
-  //         <div className='col-start-5 col-end-7 row-start-3 row-end-5'></div>
-  //       </div>
-  //       {/* <div className="flex-1 grid grid-cols-8 grid-rows-10 gap-5 px-30 py-5 grid-container">
-
-  //         <div className="group/balance col-start-1 col-end-3 row-start-1 row-end-3 ">
-  //           <TotalBalanceCard />
-  //         </div>
-
-  //         <div className="col-start-4 col-end-5 row-start-1 row-end-2 overflow-hidden action-button">
-  //           <InvestButton />
-  //         </div>
-
-  //         <div className="col-start-4 col-end-5 row-start-2 row-end-3 overflow-hidden action-button">
-  //           <WithdrawButton />
-  //         </div>
-
-  //           <div
-  //             onClick={() =>
-  //               setLayout(layout === 'growth' ? 'default' : 'growth')
-  //             }
-  //             className={`group ${layoutConfig[layout].growth} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-  //           >
-  //             <LineGraphCard />
-  //           </div>
-
-  //           <div
-  //             onClick={() =>
-  //               setLayout(layout === 'breakdown' ? 'default' : 'breakdown')
-  //             }
-  //             className={`group ${layoutConfig[layout].breakdown} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-  //           >
-  //             <PortfolioBreakdownCard />
-  //           </div>
-
-  //           <div
-  //             onClick={() =>
-  //               setLayout(layout === 'activity' ? 'default' : 'activity')
-  //             }
-  //             className={`group ${layoutConfig[layout].activity} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-  //           >
-  //             <RecentActivityCard />
-  //           </div>
-
-  //           <div
-  //             onClick={() =>
-  //               setLayout(layout === 'risk' ? 'default' : 'risk')
-  //             }
-  //             className={`group ${layoutConfig[layout].risk} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-  //           >
-  //             <RiskCard />
-  //           </div>
-
-  //           <div
-  //             onClick={() =>
-  //               setLayout(layout === 'goals' ? 'default' : 'goals')
-  //             }
-  //             className={`group ${layoutConfig[layout].goals} overflow-hidden hover:cursor-pointer transition-all duration-300 transform`}
-  //           >
-  //             <GoalsCard />
-  //           </div>
-
-  //       </div> */}
-  //     </main>
-  //     <div className="bg-gray-200 h-50">footer</div>
-  //   </div>
-  // );
 }
