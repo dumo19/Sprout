@@ -1,12 +1,22 @@
+'use client';
+
 import InvestFormCard from '@/components/invest/InvestFormCard';
+import InvestmentSummaryCard from '@/components/invest/InvestmentSummaryCard';
 import dummyData from '@/dummy-data/dummy-user.json';
+import { Frequency } from '@/types/InvestmentFormProps';
 import { formatCurrencyFull } from '@/utils/formatCurrency';
+import { useState } from 'react';
+
+// type Frequency = 'once' | 'weekly' | 'monthly' | 'quarterly';
 
 function breakLine() {
-  return <div className="w-full h-px bg-gray-200"/>;
+  return <div className="w-full h-px bg-gray-200" />;
 }
 
 export default function InvestPage() {
+  const [addAmount, setAddAmount] = useState<number>(10);
+  const [frequency, setFrequency] = useState<Frequency>('once');
+
   return (
     <main className="bg-[#F7F7F2] px-20 py-10 min-h-screen">
       <div className="mb-10 flex flex-row justify-between items-center">
@@ -29,9 +39,16 @@ export default function InvestPage() {
       </div>
       <div className="grid grid-row grid-cols-2 gap-8">
         <div className="bg-white border-2 border-gray-200 rounded-2xl">
-          <InvestFormCard />
+          <InvestFormCard
+            addAmount={addAmount}
+            frequency={frequency}
+            setAddAmount={setAddAmount}
+            setFrequency={setFrequency}
+          />
         </div>
-        <div className="bg-white">b</div>
+        <div className="">
+          <InvestmentSummaryCard addAmount={addAmount} frequency={frequency} />
+        </div>
       </div>
     </main>
   );
