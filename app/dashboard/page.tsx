@@ -36,7 +36,10 @@ export default function DashboardPage() {
       <div className="mb-10 flex flex-row justify-between items-center">
         <div>
           <h1 className="text-4xl">
-            {makeGreeting()}, <span className="text-primary"><i>{dummyData.first_name}</i>.</span>
+            {makeGreeting()},{' '}
+            <span className="text-primary">
+              <i>{dummyData.first_name}</i>.
+            </span>
           </h1>
           <p>Your money is working for you.</p>
         </div>
@@ -57,31 +60,31 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-3 grid-rows-1 gap-8 mb-8">
-        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+        <div className="">
           <PortfolioValueCard />
         </div>
-        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+        <div className="">
           <TotalInvestedCard />
         </div>
-        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+        <div className=" ">
           <TotalReturnsCard />
         </div>
       </div>
 
       <div className="grid grid-cols-2 grid-rows-1 gap-8 mb-8">
-        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+        <div className="  ">
           <PortfolioGrowthCard />
         </div>
-        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+        <div className="  ">
           <PortfolioBreakdownCard />
         </div>
       </div>
 
       <div className="grid grid-cols-2 grid-rows-1 gap-8">
-        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+        <div className="bg-white  rounded-2xl overflow-hidden">
           <h1>Fund Breakdown</h1>
         </div>
-        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
+        <div className="bg-white  rounded-2xl overflow-hidden">
           <h1>Recent Activity</h1>
         </div>
       </div>

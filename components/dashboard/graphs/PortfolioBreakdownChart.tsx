@@ -60,7 +60,7 @@ export default function PortfoliobreakdownChart() {
             />
             <p className="text-sm flex-1 text-gray-700">{entry.name}</p>
             <p className="text-sm font-semibold text-gray-900">
-              {entry.value}%
+              {entry.value * 100}%
             </p>
           </div>
         ))}

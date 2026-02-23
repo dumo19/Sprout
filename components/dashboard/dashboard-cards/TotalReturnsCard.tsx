@@ -11,7 +11,7 @@ const PCT_CHANGE = DIFFERENCE / TOTAL_AMOUNT;
 
 export default function TotalReturnsCard() {
   return (
-    <div className=" h-full p-5">
+    <div className=" h-full p-5 border-2 border-gray-200 rounded-2xl bg-white">
       <div className="flex flex-col gap-2 ">
         <p className="font-semibold text-sm">TOTAL RETURNS</p>
         <h1 className="text-5xl">{formatCurrencyChangeRounded(DIFFERENCE)}</h1>

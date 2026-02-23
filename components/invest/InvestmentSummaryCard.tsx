@@ -1,5 +1,9 @@
-import { InvestmentFormProps, InvestmentSummaryProps } from "@/types/InvestmentFormProps";
-import { formatCurrencyFull } from "@/utils/formatCurrency";
+import {
+  InvestmentFormProps,
+  InvestmentSummaryProps,
+} from '@/types/InvestmentFormProps';
+import { formatCurrencyFull } from '@/utils/formatCurrency';
+import dummyData from '@/dummy-data/dummy-user.json';
 
 function breakLine() {
   return <div className="w-full h-px bg-gray-200 my-3" />;
@@ -7,10 +11,10 @@ function breakLine() {
 
 export default function InvestmentSummaryCard({
   addAmount,
-  frequency
+  frequency,
 }: InvestmentSummaryProps) {
   return (
-    <div className="bg-linear-to-br from-tertiary to-primary border-2 border-gray-200 rounded-2xl p-5 text-white text-sm">
+    <div className="bg-linear-to-br from-tertiary to-primary  rounded-2xl p-5 text-white text-sm">
       <p className="text-sm font-semibold mb-5">INVESTMENT SUMMARY</p>
       <div className="flex flex-row justify-between">
         <p>Amount</p>
@@ -19,7 +23,7 @@ export default function InvestmentSummaryCard({
 
       {breakLine()}
 
-       <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between">
         <p>Frequency</p>
         <p className="font-semibold">{frequency}</p>
       </div>
@@ -40,6 +44,12 @@ export default function InvestmentSummaryCard({
 
       {breakLine()}
 
+      <div className="flex flex-row justify-between items-center">
+        <p>New Balance</p>
+        <h1 className="font-semibold text-3xl">
+          {formatCurrencyFull(addAmount + dummyData.portfolio.total_amount)}
+        </h1>
+      </div>
     </div>
-  )
+  );
 }

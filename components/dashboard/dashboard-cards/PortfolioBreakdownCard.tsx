@@ -3,7 +3,7 @@ import PortfolioBreakdownChart from '../graphs/PortfolioBreakdownChart';
 
 export default function PortfolioBreakdownCard() {
   return (
-    <div className=" flex flex-col h-full w-full p-5 text-xl gap-5">
+    <div className=" flex flex-col h-full w-full p-5 text-xl gap-5 bg-white border-2 border-gray-200 rounded-2xl">
       <div className="flex flex-row justify-between items-center">
         <h1>How It's Invested</h1>
         <div className="flex flex-row items-center gap-1 bg-green-200 py-1 px-2 rounded-full">

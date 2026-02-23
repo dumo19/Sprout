@@ -11,3 +11,7 @@ export type InvestmentSummaryProps = {
   addAmount: number,
   frequency: Frequency
 }
+
+export type InvestmentBreakdownProps = {
+  addAmount: number,
+}

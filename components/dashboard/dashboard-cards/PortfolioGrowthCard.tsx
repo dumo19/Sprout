@@ -10,7 +10,7 @@ const DEFAULT_STYLE = 'py-0.5 px-2 text-tertiary';
 export default function PortfolioGrowthCard() {
   const [range, setRange] = useState<Range>('ALL');
   return (
-    <div className=" flex flex-col h-full w-full p-5 text-xl">
+    <div className=" flex flex-col h-full w-full p-5 text-xl bg-white border-2 border-gray-200 rounded-2xl">
       <div className="flex flex-row justify-between items-center">
         <h1>Portfolio Growth</h1>
         <div className="flex flex-row text-xs font-semibold gap-1">

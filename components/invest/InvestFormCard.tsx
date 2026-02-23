@@ -10,6 +10,11 @@ const DEFAULT_FREQUENCY =
 const ACTIVE_FREQUENCY =
   'text-sm flex flex-col items-start border-2 border-primary bg-gray-100 p-3 rounded-2xl';
 
+const DEFAULT_AMOUNT =
+  'text-sm font-semibold border-2 border-gray-200 px-2 py-1 rounded-full';
+const ACTIVE_AMOUNT =
+  'text-sm font-semibold border-2 border-primary bg-gray-100 px-2 py-1 rounded-full';
+
 function breakLine() {
   return <div className="w-full h-px bg-gray-200 my-5" />;
 }
@@ -27,7 +32,6 @@ export default function InvestFormCard({
   setAddAmount,
   setFrequency,
 }: InvestmentFormProps) {
-
   return (
     <div className="p-5">
       <div>
@@ -49,11 +53,36 @@ export default function InvestFormCard({
         </div>
 
         <div className="flex flex-row gap-5">
-          <button onClick={() => setAddAmount(10)}>$10</button>
-          <button onClick={() => setAddAmount(50)}>$50</button>
-          <button onClick={() => setAddAmount(100)}>$100</button>
-          <button onClick={() => setAddAmount(250)}>$250</button>
-          <button onClick={() => setAddAmount(500)}>$500</button>
+          <button
+            className={`${addAmount === 10 ? ACTIVE_AMOUNT : DEFAULT_AMOUNT}`}
+            onClick={() => setAddAmount(10)}
+          >
+            $10
+          </button>
+          <button
+            className={`${addAmount === 50 ? ACTIVE_AMOUNT : DEFAULT_AMOUNT}`}
+            onClick={() => setAddAmount(50)}
+          >
+            $50
+          </button>
+          <button
+            className={`${addAmount === 100 ? ACTIVE_AMOUNT : DEFAULT_AMOUNT}`}
+            onClick={() => setAddAmount(100)}
+          >
+            $100
+          </button>
+          <button
+            className={`${addAmount === 250 ? ACTIVE_AMOUNT : DEFAULT_AMOUNT}`}
+            onClick={() => setAddAmount(250)}
+          >
+            $250
+          </button>
+          <button
+            className={`${addAmount === 500 ? ACTIVE_AMOUNT : DEFAULT_AMOUNT}`}
+            onClick={() => setAddAmount(500)}
+          >
+            $500
+          </button>
         </div>
 
         {breakLine()}
