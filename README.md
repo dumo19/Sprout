@@ -1,4 +1,4 @@
-# Flourish 🌻 (formerly Sprout)
+# Sprout 🌻
 
 A beginner-friendly mutual fund investment app.
 
