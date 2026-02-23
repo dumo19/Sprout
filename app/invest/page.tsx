@@ -15,7 +15,7 @@ function breakLine() {
 
 export default function InvestPage() {
   const [addAmount, setAddAmount] = useState<number>(10);
-  const [frequency, setFrequency] = useState<Frequency>('once');
+  const [frequency, setFrequency] = useState<Frequency>('One Time');
 
   return (
     <main className="bg-[#F7F7F2] px-20 py-10 min-h-screen">

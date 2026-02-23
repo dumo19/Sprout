@@ -1,4 +1,4 @@
-export type Frequency = 'once' | 'weekly' | 'monthly' | 'quarterly';
+export type Frequency = 'One Time' | 'Weekly' | 'Monthly' | 'Quarterly';
 
 export type InvestmentFormProps = {
   addAmount: number

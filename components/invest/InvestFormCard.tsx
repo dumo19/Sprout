@@ -62,8 +62,8 @@ export default function InvestFormCard({
 
         <div className="grid grid-cols-2 gap-5">
           <button
-            onClick={() => setFrequency('once')}
-            className={`${frequency === 'once' ? ACTIVE_FREQUENCY : DEFAULT_FREQUENCY}`}
+            onClick={() => setFrequency('One Time')}
+            className={`${frequency === 'One Time' ? ACTIVE_FREQUENCY : DEFAULT_FREQUENCY}`}
           >
             <p>
               <b>One Time</b>
@@ -72,8 +72,8 @@ export default function InvestFormCard({
           </button>
 
           <button
-            onClick={() => setFrequency('weekly')}
-            className={`${frequency === 'weekly' ? ACTIVE_FREQUENCY : DEFAULT_FREQUENCY}`}
+            onClick={() => setFrequency('Weekly')}
+            className={`${frequency === 'Weekly' ? ACTIVE_FREQUENCY : DEFAULT_FREQUENCY}`}
           >
             <p>
               <b>Weekly</b>
@@ -82,8 +82,8 @@ export default function InvestFormCard({
           </button>
 
           <button
-            onClick={() => setFrequency('monthly')}
-            className={`${frequency === 'monthly' ? ACTIVE_FREQUENCY : DEFAULT_FREQUENCY}`}
+            onClick={() => setFrequency('Monthly')}
+            className={`${frequency === 'Monthly' ? ACTIVE_FREQUENCY : DEFAULT_FREQUENCY}`}
           >
             <p>
               <b>Monthly</b>
@@ -92,8 +92,8 @@ export default function InvestFormCard({
           </button>
 
           <button
-            onClick={() => setFrequency('quarterly')}
-            className={`${frequency === 'quarterly' ? ACTIVE_FREQUENCY : DEFAULT_FREQUENCY}`}
+            onClick={() => setFrequency('Quarterly')}
+            className={`${frequency === 'Quarterly' ? ACTIVE_FREQUENCY : DEFAULT_FREQUENCY}`}
           >
             <p>
               <b>Quarterly</b>
