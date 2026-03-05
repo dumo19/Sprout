@@ -19,13 +19,6 @@ function breakLine() {
   return <div className="w-full h-px bg-gray-200 my-5" />;
 }
 
-// type InvestmentFormProps = {
-//   addAmount: number;
-//   frequency: number;
-//   setAddAmount: (value: number) => void;
-//   setFrequency: (value: Frequency) => void;
-// };
-
 export default function InvestFormCard({
   addAmount,
   frequency,
@@ -44,6 +37,8 @@ export default function InvestFormCard({
 
         <div className="bg-[#F7F7F2] flex flex-row text-5xl items-center gap-2 px-3 py-1 rounded-2xl border-2 border-gray-200">
           <h1 className="">$</h1>
+
+          {/* fix input logic */}
           <input
             type="number"
             value={addAmount}

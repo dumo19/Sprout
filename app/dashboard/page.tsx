@@ -14,7 +14,7 @@ import RecentActivityCard from '@/archive/RecentActivityCard';
 import GoalsCard from '@/archive/GoalsCard';
 import { useEffect, useState } from 'react';
 import ProtfolioBalanceCard from '@/archive/PortfolioBalanceCard';
-import SideNavBar from '@/components/SideNavBar';
+import SideNavBar from '@/components/navigation/SideNavBar';
 import dummyData from '@/dummy-data/dummy-user.json';
 import PortfolioValueCard from '@/components/dashboard/dashboard-cards/PortfolioValueCard';
 import TotalInvestedCard from '@/components/dashboard/dashboard-cards/TotalInvestedCard';
@@ -46,7 +46,7 @@ export default function DashboardPage() {
         <div className="flex flex-row items-center gap-5">
           <Link
             href="/invest"
-            className="border-primary border-2 px-5 py-3 rounded-full font-semibold text-primary"
+            className="border-primary border-2 bg-white px-5 py-3 rounded-full font-semibold text-primary"
           >
             Withdraw
           </Link>

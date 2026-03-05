@@ -1,0 +1,169 @@
+[
+  {
+    "id": 1,
+    "category": "TIME HORIZON",
+    "question": "When do you expect to need this money?",
+    "subtitle": "Longer horizons allow for more aggressive growth strategies.",
+    "type": "single",
+    "answers": [
+      { "option": "Less than 1 year", "score": 0 },
+      { "option": "1 - 3 years", "score": 0.25 },
+      { "option": "3 - 5 years", "score": 0.5 },
+      { "option": "5 - 10 years", "score": 0.75 },
+      { "option": "More than 10 years", "score": 1 }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "LIQUIDITY NEEDS",
+    "question": "What portion of this portfolio might you need to access unexpectedly?",
+    "subtitle": "Higher liquidity needs limit how much we can allocate to long-term, illiquid assets.",
+    "type": "single",
+    "answers": [
+      { "option": "Less than 5%", "score": 1 },
+      { "option": "5 - 10%", "score": 0.6 },
+      { "option": "10 - 25%", "score": 0.25 },
+      { "option": "More than 25%", "score": 0 }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "FINANCIAL CUSHION",
+    "question": "Do you have savings or an emergency fund outside this portfolio?",
+    "subtitle": "A separate safety net means you're less likely to be forced to sell at the wrong time.",
+    "type": "single",
+    "answers": [
+      { "option": "Yes — 6+ months of expenses covered", "score": 1 },
+      { "option": "Yes — 3 to 6 months covered", "score": 0.7 },
+      { "option": "Some cash set aside", "score": 0.4 },
+      { "option": "No emergency fund", "score": 0 }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "INCOME STABILITY",
+    "question": "How stable is your primary source of income?",
+    "subtitle": "Stable income means you can ride out downturns without relying on your portfolio.",
+    "type": "single",
+    "answers": [
+      { "option": "Very stable — salaried, secure employment", "score": 1 },
+      { "option": "Mostly stable", "score": 0.7 },
+      { "option": "Variable — freelance or self-employed", "score": 0.3 },
+      { "option": "Uncertain or at risk", "score": 0 }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "INCOME DEPENDENCE",
+    "question": "How dependent are you on this portfolio for near-term income?",
+    "subtitle": "Relying on your portfolio for income limits how aggressively it can be invested.",
+    "type": "single",
+    "answers": [
+      { "option": "Not at all — I have other income sources", "score": 1 },
+      { "option": "Somewhat — I may draw from it occasionally", "score": 0.4 },
+      { "option": "Highly — it is a primary income source", "score": 0 }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "MARKET REACTION",
+    "question": "If your portfolio dropped 10% in a single month, what would you do?",
+    "subtitle": "Your instinctive reaction to short-term loss is one of the strongest signals of true risk tolerance.",
+    "type": "single",
+    "answers": [
+      { "option": "Sell everything to stop further losses", "score": 0 },
+      { "option": "Sell the positions that are down the most", "score": 0.3 },
+      { "option": "Hold and wait for recovery", "score": 0.7 },
+      { "option": "Invest more — it is a buying opportunity", "score": 1 }
+    ]
+  },
+  {
+    "id": 7,
+    "category": "DRAWDOWN TOLERANCE",
+    "question": "What is the largest temporary loss you could tolerate without losing sleep?",
+    "subtitle": "Temporary losses are a normal part of investing — knowing your limit helps us protect you.",
+    "type": "single",
+    "answers": [
+      { "option": "Up to 5%", "score": 0 },
+      { "option": "Up to 10%", "score": 0.3 },
+      { "option": "Up to 20%", "score": 0.7 },
+      { "option": "Up to 30%", "score": 1 }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "RISK PHILOSOPHY",
+    "question": "Which of these best describes your investment outlook?",
+    "subtitle": "There is no right answer — this helps us align your portfolio with your personal philosophy.",
+    "type": "single",
+    "answers": [
+      {
+        "option": "Preserve my capital above all else — slow, steady growth is fine",
+        "score": 0.2
+      },
+      {
+        "option": "Balance growth and stability — some ups and downs are acceptable",
+        "score": 0.6
+      },
+      {
+        "option": "Maximize long-term growth — I can handle significant short-term swings",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "category": "SEVERE MARKET EVENT",
+    "question": "If the market fell 20% in a short period, what would you do?",
+    "subtitle": "Severe downturns test conviction. Knowing your response shapes how we build your allocation.",
+    "type": "single",
+    "answers": [
+      { "option": "Exit the market entirely", "score": 0 },
+      { "option": "Reduce my exposure", "score": 0.3 },
+      { "option": "Hold my current positions", "score": 0.7 },
+      { "option": "Add to my positions — prices are low", "score": 1 }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "INVESTMENT EXPERIENCE",
+    "question": "How would you describe your investing experience?",
+    "subtitle": "Experience shapes comfort with volatility and the ability to make calm decisions under pressure.",
+    "type": "single",
+    "answers": [
+      {
+        "option": "Experienced — I have been actively invested for years",
+        "score": 1
+      },
+      {
+        "option": "Some knowledge — I understand how the stock market works",
+        "score": 0.6
+      },
+      {
+        "option": "Limited — I know what investing is but not the mechanics of it",
+        "score": 0.2
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "category": "INVESTMENT PRIORITY",
+    "question": "Which statement best reflects your priority as an investor?",
+    "subtitle": "Your core priority anchors every allocation decision we make on your behalf.",
+    "type": "single",
+    "answers": [
+      {
+        "option": "Protect my money — I prioritize safety over returns",
+        "score": 0.1
+      },
+      {
+        "option": "Balance growth and risk in roughly equal measure",
+        "score": 0.6
+      },
+      {
+        "option": "Maximize growth — I accept higher risk for higher reward",
+        "score": 1
+      }
+    ]
+  }
+]

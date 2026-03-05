@@ -8,4 +8,9 @@ export interface PortfolioChartProps {
   range: Range
 }
 
-export type Range = '1D' | '1M' | '3M' | '6M' | '1Y' | 'ALL';
+export type Range = '1D' | '1M' | '3M' | '6M' | '1Y' | 'YTD' | 'ALL';
+
+export interface PerformanceRangeProps {
+  range: Range;
+  setRange: (value: Range) => void
+}

@@ -1,5 +1,5 @@
 import CardTitle from './card-title/CardTitle';
-import PortfolioPieChart from '../components/dashboard/graphs/PortfolioPieChart';
+import PortfolioPieChart from './PortfolioPieChart';
 
 export default function PortfolioBreakdownCard() {
   return (

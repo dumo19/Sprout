@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ArrowLeftRight,
   Calculator,
@@ -9,9 +11,11 @@ import {
   PanelLeft,
   PieChart,
   Settings,
+  Sprout,
   TrendingUp,
 } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 // const PATH = usePathname()
 
@@ -24,22 +28,25 @@ const TABS: TabProp[] = [
   // main menu section
   { tab_name: 'MENU', link: null },
   { tab_name: 'Dashboard', link: '/dashboard' },
-  { tab_name: 'My Portfolio', link: '/dashboard' },
+  { tab_name: 'My Portfolio', link: '/portfolio' },
   { tab_name: 'Invest', link: '/invest' },
-  { tab_name: 'Transactions', link: '/dashboard' },
-  { tab_name: 'Goals', link: '/dashboard' },
+  { tab_name: 'Transactions', link: '/transactions' },
+  { tab_name: 'My Sprout', link: '/mysprout' },
 
   // support section
   { tab_name: 'SUPPORT', link: null },
-  { tab_name: 'What-If?', link: '/dashboard' },
-  { tab_name: 'Learn', link: '/dashboard' },
-  { tab_name: 'Help', link: '/dashboard' },
-  { tab_name: 'Settings', link: '/dashboard' },
+  { tab_name: 'What-If?', link: '/what-if' },
+  { tab_name: 'Learn', link: '/learn' },
+  { tab_name: 'Help', link: '/help' },
+  { tab_name: 'Settings', link: '/settings' },
 ];
 
 const ICON_COLOR: string = 'rgba(255, 255, 255, 0.80)';
 const ICON_SIZE: number = 18;
 const TAB_TEXT_COLOR: string = 'text-white/65';
+
+const SELECTED_PAGE = ' flex flex-row gap-2 items-center py-3 px-4 bg-primary rounded-lg'
+const DEFAULT_PAGE = "flex flex-row gap-2 items-center py-3 px-4"
 
 function getIcon(icon: string) {
   switch (icon) {
@@ -53,6 +60,8 @@ function getIcon(icon: string) {
       return <ArrowLeftRight color={ICON_COLOR} size={ICON_SIZE} />;
     case 'Goals':
       return <Goal color={ICON_COLOR} size={ICON_SIZE} />;
+    case 'My Sprout':
+      return <Sprout color={ICON_COLOR} size={ICON_SIZE}/>
     case 'What-If?':
       return <Calculator color={ICON_COLOR} size={ICON_SIZE} />;
     case 'Learn':
@@ -66,7 +75,7 @@ function getIcon(icon: string) {
   }
 }
 
-function buildNavBar() {
+function buildNavBar(currentPath: string) {
   return (
     <>
       {TABS.map((tab) => {
@@ -74,7 +83,7 @@ function buildNavBar() {
           return (
             <p
               key={tab.tab_name}
-              className={`text-xs text-white ${TAB_TEXT_COLOR}`}
+              className={`text-xs text-white my-2 ml-4 ${TAB_TEXT_COLOR}`}
             >
               {tab.tab_name}
             </p>
@@ -82,7 +91,7 @@ function buildNavBar() {
         } else {
           return (
             <Link href={tab.link as string} key={tab.tab_name}>
-              <div className="flex flex-row gap-4 items-center py-1">
+              <div className={`${currentPath === tab.link ? SELECTED_PAGE : DEFAULT_PAGE}`}>
                 {getIcon(tab.tab_name)}
                 <p className={`${TAB_TEXT_COLOR}`}>{tab.tab_name}</p>
               </div>
@@ -95,10 +104,13 @@ function buildNavBar() {
 }
 
 export default function SideNavBar() {
+  const currentPath = usePathname();
+  console.log(currentPath)
+
   return (
     <main className="fixed h-screen bg-tertiary w-55 p-5 flex flex-col gap-3">
-      <div className='flex flex-row justify-between items-center mb-5'>
-        <div className="flex flex-row gap-3 items-center">
+      <div className='flex flex-row justify-between items-center mb-5 mt-4'>
+        <div className="flex flex-row gap-3 items-center ml-4">
           <img
             src="/flourish_white_flower.svg"
             alt="flourish"
@@ -112,7 +124,10 @@ export default function SideNavBar() {
       </div>
 
       {/* <div className="w-full h-px bg-white/65 mb-5" /> */}
-      {buildNavBar()}
+      <div className='flex flex-col'>
+        {buildNavBar(currentPath)}
+      </div>
+      
     </main>
   );
 }

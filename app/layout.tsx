@@ -10,7 +10,7 @@ import {
 } from 'next/font/google';
 import './globals.css';
 import NavBar from '@/archive/NavBar';
-import SideNavBar from '@/components/SideNavBar';
+import SideNavBar from '@/components/navigation/SideNavBar';
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
