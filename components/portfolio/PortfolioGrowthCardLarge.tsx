@@ -13,7 +13,7 @@ export default function PortfolioGrowthCardLarge() {
     <div className=" flex flex-col h-full w-full p-5 text-xl bg-white border-2 border-gray-200 rounded-2xl">
       <div className="flex flex-row justify-between items-center">
         <h1>Performance</h1>
-        <PerformanceRangeButtons range={range} setRange={setRange}/>
+        <PerformanceRangeButtons range={range} setRange={setRange} />
       </div>
       <div className="flex-1">
         <PortfolioGrowthChartLarge range={range} />

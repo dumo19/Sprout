@@ -1,4 +1,4 @@
-const LANGUAGE = "en-US"
+const LANGUAGE = 'en-US';
 
 export const formatCurrencyFull = (v: number): string => {
   return new Intl.NumberFormat(LANGUAGE, {

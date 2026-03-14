@@ -14,8 +14,7 @@ export const formatDateFullShort = (d: string): string => {
     day: 'numeric',
     year: 'numeric',
   });
-
-}
+};
 
 export const formatDateFullLong = (d: string): string => {
   const date = new Date(d + 'T00:00:00');

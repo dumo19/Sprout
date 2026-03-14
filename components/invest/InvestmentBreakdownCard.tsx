@@ -1,5 +1,8 @@
 import { InvestmentBreakdownProps } from '@/types/InvestmentFormProps';
-import { formatCurrencyFull, formatCurrencyRounded } from '@/utils/formatCurrency';
+import {
+  formatCurrencyFull,
+  formatCurrencyRounded,
+} from '@/utils/formatCurrency';
 import dummyData from '@/dummy-data/dummy-user.json';
 
 const breakdown = dummyData.portfolio.breakdown;
@@ -18,7 +21,7 @@ function percentageBar(value: number, color: string) {
 // function processAmountInvested(value: number, pct: number) {
 //   const amount = value * pct;
 //   amount > 1
-  
+
 // }
 
 function breakLine() {
@@ -42,7 +45,9 @@ export default function InvestmentBreakdownCard({
 
         {/* <div className='bg-blue-200 flex flex-row justify-between'> */}
         <p className="font-semibold">{breakdown.stocks * 100}%</p>
-        <p className='text-gray-500'>{formatCurrencyFull(addAmount * breakdown.stocks)}</p>
+        <p className="text-gray-500">
+          {formatCurrencyFull(addAmount * breakdown.stocks)}
+        </p>
         {/* </div> */}
       </div>
 
@@ -56,7 +61,9 @@ export default function InvestmentBreakdownCard({
 
         {/* <div className='bg-blue-200 flex flex-row justify-between'> */}
         <p className="font-semibold">{breakdown.bonds * 100}%</p>
-        <p className='text-gray-500'>{formatCurrencyFull(addAmount * breakdown.bonds)}</p>
+        <p className="text-gray-500">
+          {formatCurrencyFull(addAmount * breakdown.bonds)}
+        </p>
         {/* </div> */}
       </div>
 
@@ -70,7 +77,9 @@ export default function InvestmentBreakdownCard({
 
         {/* <div className='bg-blue-200 flex flex-row justify-between'> */}
         <p className="font-semibold">{breakdown.treasuries * 100}%</p>
-        <p className='text-gray-500'>{formatCurrencyFull(addAmount * breakdown.treasuries)}</p>
+        <p className="text-gray-500">
+          {formatCurrencyFull(addAmount * breakdown.treasuries)}
+        </p>
         {/* </div> */}
       </div>
 
@@ -84,7 +93,9 @@ export default function InvestmentBreakdownCard({
 
         {/* <div className='bg-blue-200 flex flex-row justify-between'> */}
         <p className="font-semibold">{breakdown.other * 100}%</p>
-        <p className='text-gray-500'>{formatCurrencyFull(addAmount * breakdown.other)}</p>
+        <p className="text-gray-500">
+          {formatCurrencyFull(addAmount * breakdown.other)}
+        </p>
         {/* </div> */}
       </div>
     </div>

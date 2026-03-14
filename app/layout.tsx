@@ -11,6 +11,7 @@ import {
 import './globals.css';
 import NavBar from '@/archive/NavBar';
 import SideNavBar from '@/components/navigation/SideNavBar';
+import { SessionProvider } from '@/context/SessionProvider';
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -41,8 +42,9 @@ export default function RootLayout({
       <body
         className={`flex flex-row ${dmSans.variable} ${dmSerifText.variable} antialiased`}
       >
-        <SideNavBar />
-        <div className="flex-1 ml-55">{children}</div>
+        <SessionProvider>
+          <div className="">{children}</div>
+        </SessionProvider>
       </body>
     </html>
   );
