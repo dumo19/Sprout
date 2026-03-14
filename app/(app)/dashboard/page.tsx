@@ -7,6 +7,9 @@ import TotalInvestedCard from './components/dashboard-cards/TotalInvestedCard';
 import TotalReturnsCard from './components/dashboard-cards/TotalReturnsCard';
 import PortfolioGrowthCard from './components/dashboard-cards/PortfolioGrowthCard';
 import PortfolioBreakdownCard from './components/dashboard-cards/PortfolioBreakdownCard';
+import { createClient } from '@/supabase/client';
+import { redirect } from 'next/navigation';
+import { useSession } from '@/context/SessionProvider';
 
 function makeGreeting(): string {
   const hour = new Date().getHours();
@@ -17,6 +20,14 @@ function makeGreeting(): string {
 }
 
 export default function DashboardPage() {
+  // const supabase = await createClient()
+  // const { data } = await supabase.auth.getClaims();
+  // if (!data) redirect('/login');
+  // const claims = data.claims;
+  const { session, userData } = useSession()
+
+  if (!session) return null
+
   return (
     <main className="bg-[#F7F7F2] px-20 py-10 min-h-screen">
       <div className="mb-10 flex flex-row justify-between items-center">
@@ -24,7 +35,7 @@ export default function DashboardPage() {
           <h1 className="text-4xl">
             {makeGreeting()},{' '}
             <span className="text-primary">
-              <i>{dummyData.first_name}</i>.
+              <i>{userData?.first_name}</i>.
             </span>
           </h1>
           <p>Your money is working for you.</p>
