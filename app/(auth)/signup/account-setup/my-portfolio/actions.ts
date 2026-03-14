@@ -1,4 +1,4 @@
-'use server'
+'use server';
 
 import { createClient } from '@/supabase/server';
 import { PortfolioWeights } from '@/types/PortfolioWeights';
@@ -11,18 +11,20 @@ export async function makePortfolio(weights: PortfolioWeights) {
 
   const claims = data.claims;
 
-  const { error } = await supabase.from('portfolios').upsert({
-    user_id: claims.sub,
-    stocks: weights.stocks,
-    bonds: weights.bonds,
-    treasuries: weights.treasuries,
-    cash: weights.cash,
-    other: weights.other,
-  });
+  const { error } = await supabase.from('portfolios').upsert(
+    {
+      user_id: claims.sub,
+      stocks: weights.stocks,
+      bonds: weights.bonds,
+      treasuries: weights.treasuries,
+      cash: weights.cash,
+      other: weights.other,
+    },
+    { onConflict: 'user_id' },
+  ); // ← tells supabase to update if user_id already exists
 
-  if (error) throw error;
-
-  console.log("portfolio added")
+  if (error) throw new Error(error.message);
+  console.log('portfolio added');
 
   redirect('/dashboard');
 }

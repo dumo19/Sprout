@@ -12,6 +12,8 @@ import './globals.css';
 import NavBar from '@/archive/NavBar';
 import SideNavBar from '@/components/navigation/SideNavBar';
 import { SessionProvider } from '@/context/SessionProvider';
+import { createClient } from '@/supabase/server';
+import { redirect } from 'next/navigation';
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -32,11 +34,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+
   return (
     <html lang="en">
       <body

@@ -1,51 +1,48 @@
 'use client';
-import { SignInButtonGitHub } from '@/components/auth/SignInButtonGitHub';
-import NavBar from '@/archive/NavBar';
-import { Mail, Lock } from 'lucide-react';
 import { useState } from 'react';
-import TextInput from '@/components/TextInput';
 import Link from 'next/link';
+import TextInput from '@/components/TextInput';
+import { SignInButtonGitHub } from '@/components/auth/SignInButtonGitHub';
 import signInWithEmail from '@/supabase/signIn';
-import { useRouter } from 'next/navigation';
 
-function breakLine() {
+function BreakLine() {
   return <div className="w-full h-px bg-gray-200 my-3" />;
 }
 
 export default function LoginPage() {
-  const router = useRouter();
-
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [error, setError] = useState<string>('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   async function handleSignIn(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-   
-    await signInWithEmail(email, password);
-    // TODO: error handle
-
-   
+    setError('');
+    try {
+      await signInWithEmail(email, password);
+    } catch (err: any) {
+      setError(err.message ?? 'Invalid email or password');
+    }
   }
 
   return (
     <main className="h-screen w-screen flex flex-col">
-      {/* <NavBar /> */}
       <div className="flex flex-1 flex-row justify-center items-center">
         <div className="bg-tertiary flex-2 h-full flex justify-center items-center">
           <img
             src="/sprout_green_flower.svg"
-            alt="flourish"
+            alt="sprout"
             height={250}
             width={250}
           />
         </div>
+
         <div className="bg-background flex flex-3 h-full justify-center items-center flex-col">
           <div className="w-1/2">
             <h1 className="text-4xl">Welcome Back</h1>
-            <p className="">Sign in to your Sprout account</p>
-            {breakLine()}
-            {/* email */}
+            <p>Sign in to your Sprout account</p>
+            <BreakLine />
+
+            {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
 
             <div className="my-5">
               <TextInput
@@ -56,8 +53,6 @@ export default function LoginPage() {
                 setValue={setEmail}
               />
             </div>
-
-            {/* password */}
             <div className="mb-5">
               <TextInput
                 heading="Password"
@@ -72,13 +67,13 @@ export default function LoginPage() {
               onClick={handleSignIn}
               className="w-full h-11 bg-primary text-white rounded-lg font-semibold my-4"
             >
-              <p>Sign In</p>
+              Sign In
             </button>
 
-            <div className="flex flex-row items-center ">
-              {breakLine()}
+            <div className="flex flex-row items-center">
+              <BreakLine />
               <p className="text-xs mx-3">OR</p>
-              {breakLine()}
+              <BreakLine />
             </div>
 
             <SignInButtonGitHub />
@@ -88,9 +83,6 @@ export default function LoginPage() {
                 Don't have an account? <b>Create one for free</b>
               </p>
             </Link>
-            <button>
-              <p>Try as guest</p>
-            </button>
           </div>
         </div>
       </div>

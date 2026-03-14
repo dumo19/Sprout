@@ -8,6 +8,7 @@ import {
 } from '@/types/OnboardingQuestions';
 import { optimizationEngine } from '@/scripts/optimization-engine';
 import { useRouter } from 'next/navigation';
+import { submitRiskForm } from './actions';
 
 const QUESTIONS: OnboardingQuestion[] = questionsData;
 const NUMBER_OF_QUESTIONS: number = QUESTIONS.length;
@@ -29,7 +30,7 @@ export default function QuestionsPage() {
   const currentQuestion = QUESTIONS[currentIndex];
   const end = currentIndex === NUMBER_OF_QUESTIONS - 1;
 
-  let riskScore = 0;
+  // let riskScore = 0;
 
   function handleUpdateAnswer(answerId: string, score: number) {
     setAnswers((prev) => {
@@ -45,20 +46,18 @@ export default function QuestionsPage() {
     });
   }
 
-  function handleNextClick(e: React.MouseEvent<HTMLButtonElement>) {
-    if (!answers[currentIndex]) return;
-    if (currentIndex < NUMBER_OF_QUESTIONS - 1)
-      setCurrentIndex((prev) => prev + 1);
-    if (currentIndex === NUMBER_OF_QUESTIONS - 1) handleSubmit();
-  }
+  async function handleNextClick(e: React.MouseEvent<HTMLButtonElement>) {
+  if (!answers[currentIndex]) return
+  if (currentIndex < NUMBER_OF_QUESTIONS - 1) setCurrentIndex((prev) => prev + 1)
+  if (currentIndex === NUMBER_OF_QUESTIONS - 1) await handleSubmit()
+}
 
-  function handleSubmit() {
+  async function handleSubmit() {
     // calculate average score
-    riskScore = parseFloat(
+    const riskScore = parseFloat(
       (scores.reduce((sum, n) => sum + n, 0) / scores.length).toFixed(5),
     );
-    console.log(riskScore);
-    router.push(`/signup/account-setup/my-portfolio?risk_score=${riskScore}`)
+    await submitRiskForm(riskScore)
     // const portfolioWeights = optimizationEngine(riskScore).bestWeights
     // console.log(portfolioWeights)
   }

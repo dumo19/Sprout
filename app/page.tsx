@@ -1,15 +1,19 @@
-// 'use client';
+import { createClient } from '@/supabase/server'
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
 
-// import Navbar from "@/components/NavBar";
-import Image from 'next/image';
-import Link from 'next/link';
+export default async function Home() {
+  const supabase = await createClient()
+  const { data } = await supabase.auth.getClaims()
+  if (data?.claims) redirect('/dashboard')
 
-export default function Home() {
   return (
-    <>
-      <div>Welcome To Sprout</div>
-      <Link href="/dashboard">Go to dahboard</Link>
-      <Link href="/login">Go to login</Link>
-    </>
-  );
+    <div className='h-screen w-screen flex flex-col justify-center items-center gap-4'>
+      <h1 className='text-4xl font-bold'>Welcome to Sprout</h1>
+      <div className='flex gap-4'>
+        <Link href='/login'>Sign In</Link>
+        <Link href='/signup'>Create Account</Link>
+      </div>
+    </div>
+  )
 }
