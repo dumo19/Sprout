@@ -9,6 +9,10 @@ import {
   Mail,
   Table,
   Lock,
+  User,
+  Phone,
+  Cake,
+  House,
 } from 'lucide-react';
 
 type IconProp = {
@@ -17,8 +21,11 @@ type IconProp = {
   size: number;
 };
 
-export default function getIcon({ icon, color, size = 24 }: IconProp) {
-  
+export default function getIcon({
+  icon,
+  color = 'black',
+  size = 24,
+}: IconProp) {
   function getIconFunc(icon: string) {
     switch (icon) {
       case 'layers':
@@ -41,6 +48,14 @@ export default function getIcon({ icon, color, size = 24 }: IconProp) {
         return <Mail color={color} size={size} />;
       case 'password':
         return <Lock color={color} size={size} />;
+      case 'user':
+        return <User color={color} size={size} />;
+      case 'phone':
+        return <Phone color={color} size={size} />;
+      case 'cake':
+        return <Cake color={color} size={size} />;
+      case 'house':
+        return <House color={color} size={size} />;
       default:
         return null;
     }

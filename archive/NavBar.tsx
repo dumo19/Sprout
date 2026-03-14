@@ -1,6 +1,6 @@
 'use client';
 
-import { auth } from '@/auth';
+import { auth } from '@/archive/auth';
 import { SignInButtonGitHub } from '../components/auth/SignInButtonGitHub';
 import Image from 'next/image';
 import Link from 'next/link';

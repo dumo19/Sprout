@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import SignOutButton from './SignOutButton';
 
 // const PATH = usePathname()
 
@@ -45,8 +46,9 @@ const ICON_COLOR: string = 'rgba(255, 255, 255, 0.80)';
 const ICON_SIZE: number = 18;
 const TAB_TEXT_COLOR: string = 'text-white/65';
 
-const SELECTED_PAGE = ' flex flex-row gap-2 items-center py-3 px-4 bg-primary rounded-lg'
-const DEFAULT_PAGE = "flex flex-row gap-2 items-center py-3 px-4"
+const SELECTED_PAGE =
+  ' flex flex-row gap-2 items-center py-3 px-4 bg-primary rounded-lg';
+const DEFAULT_PAGE = 'flex flex-row gap-2 items-center py-3 px-4';
 
 function getIcon(icon: string) {
   switch (icon) {
@@ -61,7 +63,7 @@ function getIcon(icon: string) {
     case 'Goals':
       return <Goal color={ICON_COLOR} size={ICON_SIZE} />;
     case 'My Sprout':
-      return <Sprout color={ICON_COLOR} size={ICON_SIZE}/>
+      return <Sprout color={ICON_COLOR} size={ICON_SIZE} />;
     case 'What-If?':
       return <Calculator color={ICON_COLOR} size={ICON_SIZE} />;
     case 'Learn':
@@ -91,7 +93,9 @@ function buildNavBar(currentPath: string) {
         } else {
           return (
             <Link href={tab.link as string} key={tab.tab_name}>
-              <div className={`${currentPath === tab.link ? SELECTED_PAGE : DEFAULT_PAGE}`}>
+              <div
+                className={`${currentPath === tab.link ? SELECTED_PAGE : DEFAULT_PAGE}`}
+              >
                 {getIcon(tab.tab_name)}
                 <p className={`${TAB_TEXT_COLOR}`}>{tab.tab_name}</p>
               </div>
@@ -105,11 +109,11 @@ function buildNavBar(currentPath: string) {
 
 export default function SideNavBar() {
   const currentPath = usePathname();
-  console.log(currentPath)
+  console.log(currentPath);
 
   return (
     <main className="fixed h-screen bg-tertiary w-55 p-5 flex flex-col gap-3">
-      <div className='flex flex-row justify-between items-center mb-5 mt-4'>
+      <div className="flex flex-row justify-between items-center mb-5 mt-4">
         <div className="flex flex-row gap-3 items-center ml-4">
           <img
             src="/flourish_white_flower.svg"
@@ -120,14 +124,17 @@ export default function SideNavBar() {
           {/* <img src="/flourish_text.svg" alt="flourish" height={50} width={100} /> */}
           {/* <h1 className='text-white text-4xl'>flourish</h1> */}
         </div>
-        <PanelLeft color={ICON_COLOR} size={ICON_SIZE}/>
+        <PanelLeft color={ICON_COLOR} size={ICON_SIZE} />
       </div>
 
       {/* <div className="w-full h-px bg-white/65 mb-5" /> */}
-      <div className='flex flex-col'>
-        {buildNavBar(currentPath)}
+      <div className="flex-1 flex flex-col justify-between">
+        <div>{buildNavBar(currentPath)}</div>
+
+        <div>
+          <SignOutButton />
+        </div>
       </div>
-      
     </main>
   );
 }

@@ -6,11 +6,11 @@
     "subtitle": "Longer horizons allow for more aggressive growth strategies.",
     "type": "single",
     "answers": [
-      { "option": "Less than 1 year", "score": 0 },
-      { "option": "1 - 3 years", "score": 0.25 },
-      { "option": "3 - 5 years", "score": 0.5 },
-      { "option": "5 - 10 years", "score": 0.75 },
-      { "option": "More than 10 years", "score": 1 }
+      { "id": "1_1", "option": "Less than 1 year",   "score": 0    },
+      { "id": "1_2", "option": "1 - 3 years",        "score": 0.25 },
+      { "id": "1_3", "option": "3 - 5 years",        "score": 0.5  },
+      { "id": "1_4", "option": "5 - 10 years",       "score": 0.75 },
+      { "id": "1_5", "option": "More than 10 years", "score": 1    }
     ]
   },
   {
@@ -20,10 +20,10 @@
     "subtitle": "Higher liquidity needs limit how much we can allocate to long-term, illiquid assets.",
     "type": "single",
     "answers": [
-      { "option": "Less than 5%", "score": 1 },
-      { "option": "5 - 10%", "score": 0.6 },
-      { "option": "10 - 25%", "score": 0.25 },
-      { "option": "More than 25%", "score": 0 }
+      { "id": "2_1", "option": "Less than 5%",  "score": 1    },
+      { "id": "2_2", "option": "5 - 10%",       "score": 0.6  },
+      { "id": "2_3", "option": "10 - 25%",      "score": 0.25 },
+      { "id": "2_4", "option": "More than 25%", "score": 0    }
     ]
   },
   {
@@ -33,10 +33,10 @@
     "subtitle": "A separate safety net means you're less likely to be forced to sell at the wrong time.",
     "type": "single",
     "answers": [
-      { "option": "Yes — 6+ months of expenses covered", "score": 1 },
-      { "option": "Yes — 3 to 6 months covered", "score": 0.7 },
-      { "option": "Some cash set aside", "score": 0.4 },
-      { "option": "No emergency fund", "score": 0 }
+      { "id": "3_1", "option": "Yes — 6+ months of expenses covered", "score": 1   },
+      { "id": "3_2", "option": "Yes — 3 to 6 months covered",         "score": 0.7 },
+      { "id": "3_3", "option": "Some cash set aside",                  "score": 0.4 },
+      { "id": "3_4", "option": "No emergency fund",                    "score": 0   }
     ]
   },
   {
@@ -46,10 +46,10 @@
     "subtitle": "Stable income means you can ride out downturns without relying on your portfolio.",
     "type": "single",
     "answers": [
-      { "option": "Very stable — salaried, secure employment", "score": 1 },
-      { "option": "Mostly stable", "score": 0.7 },
-      { "option": "Variable — freelance or self-employed", "score": 0.3 },
-      { "option": "Uncertain or at risk", "score": 0 }
+      { "id": "4_1", "option": "Very stable — salaried, secure employment", "score": 1   },
+      { "id": "4_2", "option": "Mostly stable",                             "score": 0.7 },
+      { "id": "4_3", "option": "Variable — freelance or self-employed",     "score": 0.3 },
+      { "id": "4_4", "option": "Uncertain or at risk",                      "score": 0   }
     ]
   },
   {
@@ -59,9 +59,9 @@
     "subtitle": "Relying on your portfolio for income limits how aggressively it can be invested.",
     "type": "single",
     "answers": [
-      { "option": "Not at all — I have other income sources", "score": 1 },
-      { "option": "Somewhat — I may draw from it occasionally", "score": 0.4 },
-      { "option": "Highly — it is a primary income source", "score": 0 }
+      { "id": "5_1", "option": "Not at all — I have other income sources",   "score": 1   },
+      { "id": "5_2", "option": "Somewhat — I may draw from it occasionally", "score": 0.4 },
+      { "id": "5_3", "option": "Highly — it is a primary income source",     "score": 0   }
     ]
   },
   {
@@ -71,10 +71,10 @@
     "subtitle": "Your instinctive reaction to short-term loss is one of the strongest signals of true risk tolerance.",
     "type": "single",
     "answers": [
-      { "option": "Sell everything to stop further losses", "score": 0 },
-      { "option": "Sell the positions that are down the most", "score": 0.3 },
-      { "option": "Hold and wait for recovery", "score": 0.7 },
-      { "option": "Invest more — it is a buying opportunity", "score": 1 }
+      { "id": "6_1", "option": "Sell everything to stop further losses",    "score": 0   },
+      { "id": "6_2", "option": "Sell the positions that are down the most", "score": 0.3 },
+      { "id": "6_3", "option": "Hold and wait for recovery",                "score": 0.7 },
+      { "id": "6_4", "option": "Invest more — it is a buying opportunity",  "score": 1   }
     ]
   },
   {
@@ -84,10 +84,10 @@
     "subtitle": "Temporary losses are a normal part of investing — knowing your limit helps us protect you.",
     "type": "single",
     "answers": [
-      { "option": "Up to 5%", "score": 0 },
-      { "option": "Up to 10%", "score": 0.3 },
-      { "option": "Up to 20%", "score": 0.7 },
-      { "option": "Up to 30%", "score": 1 }
+      { "id": "7_1", "option": "Up to 5%",  "score": 0   },
+      { "id": "7_2", "option": "Up to 10%", "score": 0.3 },
+      { "id": "7_3", "option": "Up to 20%", "score": 0.7 },
+      { "id": "7_4", "option": "Up to 30%", "score": 1   }
     ]
   },
   {
@@ -97,18 +97,9 @@
     "subtitle": "There is no right answer — this helps us align your portfolio with your personal philosophy.",
     "type": "single",
     "answers": [
-      {
-        "option": "Preserve my capital above all else — slow, steady growth is fine",
-        "score": 0.2
-      },
-      {
-        "option": "Balance growth and stability — some ups and downs are acceptable",
-        "score": 0.6
-      },
-      {
-        "option": "Maximize long-term growth — I can handle significant short-term swings",
-        "score": 1
-      }
+      { "id": "8_1", "option": "Preserve my capital above all else — slow, steady growth is fine",      "score": 0.2 },
+      { "id": "8_2", "option": "Balance growth and stability — some ups and downs are acceptable",       "score": 0.6 },
+      { "id": "8_3", "option": "Maximize long-term growth — I can handle significant short-term swings", "score": 1   }
     ]
   },
   {
@@ -118,10 +109,10 @@
     "subtitle": "Severe downturns test conviction. Knowing your response shapes how we build your allocation.",
     "type": "single",
     "answers": [
-      { "option": "Exit the market entirely", "score": 0 },
-      { "option": "Reduce my exposure", "score": 0.3 },
-      { "option": "Hold my current positions", "score": 0.7 },
-      { "option": "Add to my positions — prices are low", "score": 1 }
+      { "id": "9_1", "option": "Exit the market entirely",             "score": 0   },
+      { "id": "9_2", "option": "Reduce my exposure",                   "score": 0.3 },
+      { "id": "9_3", "option": "Hold my current positions",            "score": 0.7 },
+      { "id": "9_4", "option": "Add to my positions — prices are low", "score": 1   }
     ]
   },
   {
@@ -131,18 +122,9 @@
     "subtitle": "Experience shapes comfort with volatility and the ability to make calm decisions under pressure.",
     "type": "single",
     "answers": [
-      {
-        "option": "Experienced — I have been actively invested for years",
-        "score": 1
-      },
-      {
-        "option": "Some knowledge — I understand how the stock market works",
-        "score": 0.6
-      },
-      {
-        "option": "Limited — I know what investing is but not the mechanics of it",
-        "score": 0.2
-      }
+      { "id": "10_1", "option": "Experienced — I have been actively invested for years",         "score": 1   },
+      { "id": "10_2", "option": "Some knowledge — I understand how the stock market works",      "score": 0.6 },
+      { "id": "10_3", "option": "Limited — I know what investing is but not the mechanics of it","score": 0.2 }
     ]
   },
   {
@@ -152,18 +134,9 @@
     "subtitle": "Your core priority anchors every allocation decision we make on your behalf.",
     "type": "single",
     "answers": [
-      {
-        "option": "Protect my money — I prioritize safety over returns",
-        "score": 0.1
-      },
-      {
-        "option": "Balance growth and risk in roughly equal measure",
-        "score": 0.6
-      },
-      {
-        "option": "Maximize growth — I accept higher risk for higher reward",
-        "score": 1
-      }
+      { "id": "11_1", "option": "Protect my money — I prioritize safety over returns", "score": 0.1 },
+      { "id": "11_2", "option": "Balance growth and risk in roughly equal measure",    "score": 0.6 },
+      { "id": "11_3", "option": "Maximize growth — I accept higher risk for higher reward", "score": 1 }
     ]
   }
 ]
