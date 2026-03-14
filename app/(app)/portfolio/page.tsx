@@ -1,6 +1,9 @@
-import PortfolioValueCard from '@/components/dashboard/dashboard-cards/PortfolioValueCard';
-import PortfolioGrowthCardLarge from '@/components/portfolio/PortfolioGrowthCardLarge';
-import PortfolioGrowthChartLarge from '@/components/portfolio/PortfolioGrowthChartLarge';
+// import PortfolioValueCard from '@/components/dashboard/dashboard-cards/PortfolioValueCard';
+// import PortfolioGrowthCardLarge from '@/components/portfolio/PortfolioGrowthCardLarge';
+// import PortfolioGrowthChartLarge from '@/components/portfolio/PortfolioGrowthChartLarge';
+
+import PortfolioValueCard from "@/components/PortfolioValueCard";
+import PortfolioGrowthCardLarge from "./components/PortfolioGrowthCardLarge";
 
 export default function PortfolioPage() {
   return (

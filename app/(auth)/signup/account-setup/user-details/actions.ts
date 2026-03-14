@@ -39,7 +39,7 @@ export async function submitUserDetails(formData: FormData) {
 
   console.log("user added")
 
-  redirect('/signup/account-setup/questions');
+  redirect('/signup/account-setup/risk-questions');
 
   // check real person and is 18+
   // add user to db

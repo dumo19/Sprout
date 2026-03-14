@@ -1,9 +1,9 @@
 'use client';
 
-import InvestFormCard from '@/components/invest/InvestFormCard';
-import InvestmentBreakdownCard from '@/components/invest/InvestmentBreakdownCard';
-import InvestmentInfoCard from '@/components/invest/InvestmentInfoCard';
-import InvestmentSummaryCard from '@/components/invest/InvestmentSummaryCard';
+import InvestFormCard from '@/app/(app)/invest/components/InvestFormCard';
+import InvestmentBreakdownCard from '@/app/(app)/invest/components/InvestmentBreakdownCard';
+import InvestmentInfoCard from '@/app/(app)/invest/components/InvestmentInfoCard';
+import InvestmentSummaryCard from '@/app/(app)/invest/components/InvestmentSummaryCard';
 import dummyData from '@/dummy-data/dummy-user.json';
 import { Frequency } from '@/types/InvestmentFormProps';
 import { formatCurrencyFull } from '@/utils/formatCurrency';

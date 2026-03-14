@@ -1,28 +1,12 @@
 'use client';
 
-
-// import NavBar from '@/archive/NavBar';
-// import './dashboard.css';
-// import TotalBalanceCard from '@/archive/TotalBalanceCard';
-// import InvestButton from '@/components/dashboard/action-buttons/InvestButton';
-// import WithdrawButton from '@/components/dashboard/action-buttons/WithdrawButton';
-// import FundsCount from '@/archive/FundsCountCard';
-// import LineGraphCard from '@/archive/LineGraphCard';
-// import PortfolioBreakdownCard from '@/components/dashboard/dashboard-cards/PortfolioBreakdownCard';
-// import PositionsTableCard from '@/archive/PositionsTableCard';
-// import RiskCard from '@/archive/RiskCard';
-// import RecentActivityCard from '@/archive/RecentActivityCard';
-// import GoalsCard from '@/archive/GoalsCard';
-// import { useEffect, useState } from 'react';
-// import ProtfolioBalanceCard from '@/archive/PortfolioBalanceCard';
-// import SideNavBar from '@/components/navigation/SideNavBar';
 import dummyData from '@/dummy-data/dummy-user.json';
-import PortfolioValueCard from '@/components/dashboard/dashboard-cards/PortfolioValueCard';
-import TotalInvestedCard from '@/components/dashboard/dashboard-cards/TotalInvestedCard';
-import TotalReturnsCard from '@/components/dashboard/dashboard-cards/TotalReturnsCard';
-import PortfolioGrowthCard from '@/components/dashboard/dashboard-cards/PortfolioGrowthCard';
 import Link from 'next/link';
-import PortfolioBreakdownCard from '@/components/dashboard/dashboard-cards/PortfolioBreakdownCard';
+import PortfolioValueCard from '../../../components/PortfolioValueCard';
+import TotalInvestedCard from './components/dashboard-cards/TotalInvestedCard';
+import TotalReturnsCard from './components/dashboard-cards/TotalReturnsCard';
+import PortfolioGrowthCard from './components/dashboard-cards/PortfolioGrowthCard';
+import PortfolioBreakdownCard from './components/dashboard-cards/PortfolioBreakdownCard';
 
 function makeGreeting(): string {
   const hour = new Date().getHours();
