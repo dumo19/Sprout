@@ -11,9 +11,9 @@ const ACTIVE_FREQUENCY =
   'text-sm flex flex-col items-start border-2 border-primary bg-gray-100 p-3 rounded-2xl';
 
 const DEFAULT_AMOUNT =
-  'text-sm font-semibold border-2 border-gray-200 px-2 py-1 rounded-full';
+  'text-sm font-semibold border-2 border-gray-200 w-15 py-1 rounded-full';
 const ACTIVE_AMOUNT =
-  'text-sm font-semibold border-2 border-primary bg-gray-100 px-2 py-1 rounded-full';
+  'text-sm font-semibold border-2 border-primary bg-gray-100 w-15 py-1 rounded-full';
 
 function breakLine() {
   return <div className="w-full h-px bg-gray-200 my-5" />;
@@ -35,8 +35,8 @@ export default function InvestFormCard({
       <div className="mt-5 flex flex-col gap-3">
         <p className="text-sm font-semibold">AMMOUNT</p>
 
-        <div className="bg-[#F7F7F2] flex flex-row text-5xl items-center gap-2 px-3 py-1 rounded-2xl border-2 border-gray-200">
-          <h1 className="">$</h1>
+        <div className="bg-[#F7F7F2] flex flex-row text-5xl items-center px-3 py-1 rounded-2xl border-2 border-gray-200">
+          <h1 className="text-primary">$</h1>
 
           {/* fix input logic */}
           <input
