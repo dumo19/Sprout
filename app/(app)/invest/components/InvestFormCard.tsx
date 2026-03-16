@@ -3,6 +3,8 @@ import { InvestmentFormProps, Frequency } from '@/types/InvestmentFormProps';
 import { formatCurrencyFull } from '@/utils/formatCurrency';
 import { CircleCheckBig, CreditCard, Landmark } from 'lucide-react';
 import { useState } from 'react';
+import { investMoney } from '../actions';
+import { useRouter } from 'next/navigation';
 
 // type Frequency = 'once' | 'weekly' | 'monthly' | 'quarterly';
 const DEFAULT_FREQUENCY =
@@ -25,6 +27,7 @@ export default function InvestFormCard({
   setAddAmount,
   setFrequency,
 }: InvestmentFormProps) {
+  const router = useRouter();
   return (
     <div className="p-5">
       <div>
@@ -146,7 +149,23 @@ export default function InvestFormCard({
 
         {breakLine()}
 
-        <button className="p-5 bg-primary rounded-2xl w-full">
+        <button
+          onClick={async () => {
+            console.log("button pressed")
+            try {
+              await investMoney(addAmount);
+              console.log("after invest func")
+              // router.push('/dashboard');
+              window.location.href = '/dashboard';
+
+              console.log("didnt redirect")
+              router.refresh();
+            } catch (e) {
+              console.error('investMoney error:', e);
+            }
+          }}
+          className="p-5 bg-primary rounded-2xl w-full"
+        >
           <p className="font-semibold text-white">
             Invest {formatCurrencyFull(addAmount)}
           </p>

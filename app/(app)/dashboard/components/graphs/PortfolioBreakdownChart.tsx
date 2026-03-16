@@ -1,14 +1,9 @@
+'use client';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import dummyData from '@/dummy-data/dummy-user.json';
+import { useSession } from '@/context/SessionProvider';
 
 const BREAKDOWN_DATA = dummyData.portfolio.breakdown;
-
-const CHART_DATA = [
-  { name: 'Stocks', value: BREAKDOWN_DATA.stocks, color: '#43a047' },
-  { name: 'Bonds', value: BREAKDOWN_DATA.bonds, color: '#66bb6a' },
-  { name: 'Treasuries', value: BREAKDOWN_DATA.treasuries, color: '#ffca3a' },
-  { name: 'Other', value: BREAKDOWN_DATA.other, color: '#a5d6a7' },
-];
 
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
@@ -23,6 +18,25 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export default function PortfoliobreakdownChart() {
+  const { session, userData } = useSession();
+
+  if (!session) return null;
+  if (!userData) return null;
+
+  const PORTFOLIO_WEIGHTS = userData.portfolio.breakdown;
+
+  const CHART_DATA = [
+    { name: 'Stocks', value: PORTFOLIO_WEIGHTS.stocks, color: '#43a047' },
+    { name: 'Bonds', value: PORTFOLIO_WEIGHTS.bonds, color: '#66bb6a' },
+    {
+      name: 'Treasuries',
+      value: PORTFOLIO_WEIGHTS.treasuries,
+      color: '#ffca3a',
+    },
+    { name: 'Cash', value: PORTFOLIO_WEIGHTS.cash, color: '#ff873a' },
+    { name: 'Other', value: PORTFOLIO_WEIGHTS.other, color: '#a5d6a7' },
+  ];
+
   return (
     <div className="flex flex-row items-center gap-6 ">
       {/* Donut Chart */}

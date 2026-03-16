@@ -99,6 +99,22 @@ export default function InvestmentBreakdownCard({
 
       <div className=" flex flex-row w-full items-center justify-between">
         <div className=" w-2/3 flex flex-col gap-1">
+          <p>Treasuries</p>
+          {percentageBar(CASH_WEIGHT, 'blue')}
+        </div>
+
+        {/* <div className='bg-blue-200 flex flex-row justify-between'> */}
+        <p className="font-semibold">{CASH_WEIGHT * 100}%</p>
+        <p className="text-gray-500">
+          {formatCurrencyFull(addAmount * CASH_WEIGHT)}
+        </p>
+        {/* </div> */}
+      </div>
+
+      {breakLine()}
+
+      <div className=" flex flex-row w-full items-center justify-between">
+        <div className=" w-2/3 flex flex-col gap-1">
           <p>Other</p>
           {percentageBar(OTHER_WEIGHT, 'blue')}
         </div>
