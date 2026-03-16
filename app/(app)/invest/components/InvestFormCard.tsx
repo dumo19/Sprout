@@ -8,14 +8,14 @@ import { useRouter } from 'next/navigation';
 
 // type Frequency = 'once' | 'weekly' | 'monthly' | 'quarterly';
 const DEFAULT_FREQUENCY =
-  'text-sm flex flex-col items-start border-2 border-gray-200 p-3 rounded-2xl';
+  'text-sm flex flex-col items-start border-2 border-gray-200 p-3 rounded-2xl cursor-pointer';
 const ACTIVE_FREQUENCY =
-  'text-sm flex flex-col items-start border-2 border-primary bg-gray-100 p-3 rounded-2xl';
+  'text-sm flex flex-col items-start border-2 border-primary bg-gray-100 p-3 rounded-2xl cursor-pointer';
 
 const DEFAULT_AMOUNT =
-  'text-sm font-semibold border-2 border-gray-200 w-15 py-1 rounded-full';
+  'text-sm font-semibold border-2 border-gray-200 w-15 py-1 rounded-full cursor-pointer';
 const ACTIVE_AMOUNT =
-  'text-sm font-semibold border-2 border-primary bg-gray-100 w-15 py-1 rounded-full';
+  'text-sm font-semibold border-2 border-primary bg-gray-100 w-15 py-1 rounded-full cursor-pointer';
 
 function breakLine() {
   return <div className="w-full h-px bg-gray-200 my-5" />;
@@ -164,7 +164,7 @@ export default function InvestFormCard({
               console.error('investMoney error:', e);
             }
           }}
-          className="p-5 bg-primary rounded-2xl w-full"
+          className="p-5 bg-primary rounded-2xl w-full cursor-pointer"
         >
           <p className="font-semibold text-white">
             Invest {formatCurrencyFull(addAmount)}

@@ -1,87 +1,65 @@
 'use client';
 
-import dummyData from '@/dummy-data/dummy-user.json';
 import Link from 'next/link';
+import { useSession } from '@/context/SessionProvider';
 import PortfolioValueCard from '../../../components/PortfolioValueCard';
 import TotalInvestedCard from './components/dashboard-cards/TotalInvestedCard';
 import TotalReturnsCard from './components/dashboard-cards/TotalReturnsCard';
 import PortfolioGrowthCard from './components/dashboard-cards/PortfolioGrowthCard';
 import PortfolioBreakdownCard from './components/dashboard-cards/PortfolioBreakdownCard';
-import { createClient } from '@/supabase/client';
-import { redirect } from 'next/navigation';
-import { useSession } from '@/context/SessionProvider';
 
 function makeGreeting(): string {
   const hour = new Date().getHours();
-
   if (hour < 12) return 'Good Morning';
   if (hour < 17) return 'Good Afternoon';
   return 'Good Evening';
 }
 
-export default function DashboardPage() {
-  // const supabase = await createClient()
-  // const { data } = await supabase.auth.getClaims();
-  // if (!data) redirect('/login');
-  // const claims = data.claims;
-  const { session, userData } = useSession()
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  if (!session) return null
+const LINK_BASE = 'px-5 py-3 rounded-full font-semibold border-2 border-primary';
+
+export default function DashboardPage() {
+  const { session, userData } = useSession();
+
+  if (!session || !userData) return null;
 
   return (
     <main className="bg-[#F7F7F2] px-20 py-10 min-h-screen">
-      <div className="mb-10 flex flex-row justify-between items-center">
+      {/* Header */}
+      <div className="mb-10 flex justify-between items-center">
         <div>
           <h1 className="text-4xl">
             {makeGreeting()},{' '}
-            <span className="text-primary">
-              <i>{userData?.first_name}</i>.
-            </span>
+            <span className="text-primary"><i>{capitalize(userData.first_name)}</i>.</span>
           </h1>
           <p>Your money is working for you.</p>
         </div>
-        <div className="flex flex-row items-center gap-5">
-          <Link
-            href="/invest"
-            className="border-primary border-2 bg-white px-5 py-3 rounded-full font-semibold text-primary"
-          >
-            Withdraw
-          </Link>
-          <Link
-            href="/invest"
-            className="bg-primary border-primary border-2 px-5 py-3 rounded-full text-white font-semibold"
-          >
-            Add Money
-          </Link>
+        <div className="flex items-center gap-5">
+          <Link href="/invest" className={`${LINK_BASE} bg-white text-primary`}>Withdraw</Link>
+          <Link href="/invest" className={`${LINK_BASE} bg-primary text-white`}>Add Money</Link>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 grid-rows-1 gap-8 mb-8">
-        <div className="">
-          <PortfolioValueCard />
-        </div>
-        <div className="">
-          <TotalInvestedCard />
-        </div>
-        <div className=" ">
-          <TotalReturnsCard />
-        </div>
+      {/* Stats row */}
+      <div className="grid grid-cols-3 gap-8 mb-8">
+        <PortfolioValueCard />
+        <TotalInvestedCard />
+        <TotalReturnsCard />
       </div>
 
-      <div className="grid grid-cols-2 grid-rows-1 gap-8 mb-8">
-        <div className="  ">
-          <PortfolioGrowthCard />
-        </div>
-        <div className="  ">
-          <PortfolioBreakdownCard />
-        </div>
+      {/* Charts row */}
+      <div className="grid grid-cols-2 gap-8 mb-8">
+        <PortfolioGrowthCard />
+        <PortfolioBreakdownCard />
       </div>
 
-      <div className="grid grid-cols-2 grid-rows-1 gap-8">
-        <div className="bg-white  rounded-2xl overflow-hidden">
+      {/* Bottom row */}
+      <div className="grid grid-cols-2 gap-8">
+        <div className="bg-white rounded-2xl overflow-hidden p-5">
           <h1>Fund Breakdown</h1>
         </div>
-        <div className="bg-white  rounded-2xl overflow-hidden">
+        <div className="bg-white rounded-2xl overflow-hidden p-5">
           <h1>Recent Activity</h1>
         </div>
       </div>

@@ -25,6 +25,13 @@ import {
 
 const SAMPLE_DATA = dummyData.portfolio.day_change;
 
+const RANGE_TO_MONTHS: Partial<Record<Range, number>> = {
+  '1M': 1,
+  '3M': 3,
+  '6M': 6,
+  '1Y': 12,
+};
+
 type CustomToolTipProps = {
   active?: boolean;
   payload?: { value?: number; payload?: { date: string; value: number } }[];
@@ -69,39 +76,26 @@ export default function PortfolioGrowthChart({
   const [hovered, setHovered] = useState<number | null>(null);
 
   const filtered = useMemo<DataPoint[]>(() => {
-    if (range === 'ALL') return data;
-    const months =
-      range === '1M' ? 1 : range === '3M' ? 3 : range === '6M' ? 6 : 12;
+    const months = RANGE_TO_MONTHS[range];
+    if (!months) return data;
     const cutoff = new Date();
     cutoff.setMonth(cutoff.getMonth() - months);
     return data.filter((d) => new Date(d.date) >= cutoff);
   }, [data, range]);
 
-  const first: number = filtered[0]?.value ?? 0;
-  const last: number = filtered[filtered.length - 1]?.value ?? 0;
-  const current: number = hovered ?? last;
-  const change: number = current - first;
-  const changePercent: number = first ? (change / first) * 100 : 0;
-  const isPositive: boolean = change >= 0;
-
-  // console.log(filtered)
-  // console.log(current);
-  // console.log(first);
-  // console.log(change);
-
-  const yMin = useMemo(
-    () => Math.min(...filtered.map((d) => d.value)),
-    [filtered],
-  );
-  const yMax = useMemo(
-    () => Math.max(...filtered.map((d) => d.value)),
-    [filtered],
-  );
-
+  const first = filtered[0]?.value ?? 0;
+  const last = filtered[filtered.length - 1]?.value ?? 0;
+  const current = hovered ?? last;
+  const isPositive = current >= first;
   const accentColor = isPositive ? '#34d399' : '#f87171';
 
+  const [yMin, yMax] = useMemo(() => [
+    Math.min(...filtered.map((d) => d.value)),
+    Math.max(...filtered.map((d) => d.value)),
+  ], [filtered]);
+
   return (
-    <ResponsiveContainer width="100%" height="100%" className=" pt-15">
+    <ResponsiveContainer width="100%" height={"100%"} className=" pt-15">
       <LineChart
         data={filtered}
         onMouseMove={(state) => {
@@ -113,11 +107,7 @@ export default function PortfolioGrowthChart({
         <YAxis domain={[yMin, yMax]} hide />
         <Tooltip
           content={<CustomTooltip />}
-          cursor={{
-            stroke: 'rgba(0,0,0,0.30)',
-            strokeWidth: 1,
-            strokeDasharray: '4 2',
-          }}
+          cursor={{ stroke: 'rgba(0,0,0,0.30)', strokeWidth: 1, strokeDasharray: '4 2' }}
           allowEscapeViewBox={{ x: false, y: true }}
           isAnimationActive={false}
         />
@@ -127,12 +117,7 @@ export default function PortfolioGrowthChart({
           stroke={accentColor}
           strokeWidth={2}
           dot={false}
-          activeDot={{
-            r: 5,
-            fill: accentColor,
-            stroke: 'white',
-            strokeWidth: 2,
-          }}
+          activeDot={{ r: 5, fill: accentColor, stroke: 'white', strokeWidth: 2 }}
         />
       </LineChart>
     </ResponsiveContainer>

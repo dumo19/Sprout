@@ -2,6 +2,7 @@
 // import PortfolioGrowthCardLarge from '@/components/portfolio/PortfolioGrowthCardLarge';
 // import PortfolioGrowthChartLarge from '@/components/portfolio/PortfolioGrowthChartLarge';
 
+'use client'
 import PortfolioValueCard from "@/components/PortfolioValueCard";
 import PortfolioGrowthCardLarge from "./components/PortfolioGrowthCardLarge";
 
