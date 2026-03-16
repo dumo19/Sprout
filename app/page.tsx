@@ -13,6 +13,8 @@ export default async function Home() {
       <div className='flex gap-4'>
         <Link href='/login'>Sign In</Link>
         <Link href='/signup'>Create Account</Link>
+        <Link href='/guest'>Try as guest</Link>
+
       </div>
     </div>
   )

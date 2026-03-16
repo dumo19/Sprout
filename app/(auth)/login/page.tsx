@@ -83,6 +83,10 @@ export default function LoginPage() {
                 Don't have an account? <b>Create one for free</b>
               </p>
             </Link>
+
+            <Link href="/guest">
+              <p>Try as Guest</p>
+            </Link>
           </div>
         </div>
       </div>

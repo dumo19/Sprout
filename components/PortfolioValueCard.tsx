@@ -1,3 +1,5 @@
+'use client';
+import { useSession } from '@/context/SessionProvider';
 import dummyData from '@/dummy-data/dummy-user.json';
 import {
   formatCurrencyChangeFull,
@@ -5,12 +7,17 @@ import {
   formatPercentChange,
 } from '@/utils/formatCurrency';
 
-const TOTAL_AMOUNT = dummyData.portfolio.total_amount;
-const AMOUNT_INVESTED = dummyData.portfolio.amount_invested;
-const DIFFERENCE = TOTAL_AMOUNT - AMOUNT_INVESTED;
-const PCT_CHANGE = DIFFERENCE / TOTAL_AMOUNT;
-
 export default function PortfolioValueCard() {
+  const { session, userData } = useSession();
+
+  if (!session) return null;
+  if (!userData) return null;
+
+  const TOTAL_AMOUNT = userData.portfolio.balance;
+  const PRINCIPAL = userData.portfolio.principal;
+  const DIFFERENCE = TOTAL_AMOUNT - PRINCIPAL;
+  const PCT_CHANGE = DIFFERENCE / TOTAL_AMOUNT;
+
   return (
     <div className="relative flex flex-col gap-2 p-5 bg-linear-to-br from-tertiary to-primary rounded-2xl">
       <p className="text-white font-semibold text-sm">TOTAL PORTFOLIO VALUE</p>
@@ -18,7 +25,7 @@ export default function PortfolioValueCard() {
         {formatCurrencyFull(TOTAL_AMOUNT)}
       </h1>
       <p className="text-white text-sm">
-        Started from {formatCurrencyFull(AMOUNT_INVESTED)}
+        Started from {formatCurrencyFull(PRINCIPAL)}
       </p>
       <div className="flex flex-row gap-2 bg-white/20 font-semibold text-white w-fit px-3 py-0.5 rounded-full text-sm">
         <p>{formatCurrencyChangeFull(DIFFERENCE)}</p>

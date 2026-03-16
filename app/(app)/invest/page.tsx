@@ -4,6 +4,7 @@ import InvestFormCard from '@/app/(app)/invest/components/InvestFormCard';
 import InvestmentBreakdownCard from '@/app/(app)/invest/components/InvestmentBreakdownCard';
 import InvestmentInfoCard from '@/app/(app)/invest/components/InvestmentInfoCard';
 import InvestmentSummaryCard from '@/app/(app)/invest/components/InvestmentSummaryCard';
+import { useSession } from '@/context/SessionProvider';
 import dummyData from '@/dummy-data/dummy-user.json';
 import { Frequency } from '@/types/InvestmentFormProps';
 import { formatCurrencyFull } from '@/utils/formatCurrency';
@@ -16,8 +17,17 @@ function breakLine() {
 }
 
 export default function InvestPage() {
+  const { session, userData } = useSession();
   const [addAmount, setAddAmount] = useState<number>(10);
   const [frequency, setFrequency] = useState<Frequency>('One Time');
+
+  if (!session) return null;
+  if (!userData) return null;
+
+  const TOTAL_AMOUNT = userData.portfolio.balance;
+  // const PRINCIPAL = userData.portfolio.principal;
+  // const DIFFERENCE = TOTAL_AMOUNT - PRINCIPAL;
+  // const PCT_CHANGE = DIFFERENCE / TOTAL_AMOUNT;
 
   return (
     <main className="bg-[#F7F7F2] px-20 py-10 min-h-screen">
@@ -36,7 +46,7 @@ export default function InvestPage() {
           <div className="h-2.5 w-2.5 bg-primary rounded-full" />
           <p>Current Balance</p>
           <p>
-            <b>{formatCurrencyFull(dummyData.portfolio.total_amount)}</b>
+            <b>{formatCurrencyFull(TOTAL_AMOUNT)}</b>
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 import { InvestmentFormProps, Frequency } from '@/types/InvestmentFormProps';
 import { formatCurrencyFull } from '@/utils/formatCurrency';
-import { CircleCheckBig, CreditCard } from 'lucide-react';
+import { CircleCheckBig, CreditCard, Landmark } from 'lucide-react';
 import { useState } from 'react';
 
 // type Frequency = 'once' | 'weekly' | 'monthly' | 'quarterly';
@@ -132,13 +132,14 @@ export default function InvestFormCard({
         <div className="flex flex-col">
           <button className="border-2 border-gray-200 text-sm flex flex-row items-center p-3 rounded-2xl gap-5">
             <div className=" p-2 rounded border-2 border-gray-200">
-              <CreditCard />
+              <Landmark />
             </div>
             <div className="flex flex-col items-start">
               <p>
-                <b>Wells Fargo Checking</b>
+                <b>Guest Account</b>
               </p>
-              <p className="text-2xs">•••• 4568</p>
+              <p>This is not a real bank account</p>
+              <p className="text-2xs">•••• 1234</p>
             </div>
           </button>
         </div>

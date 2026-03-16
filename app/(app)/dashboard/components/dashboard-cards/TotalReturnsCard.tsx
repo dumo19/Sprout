@@ -3,13 +3,19 @@ import {
   formatPercentChange,
 } from '@/utils/formatCurrency';
 import dummyData from '@/dummy-data/dummy-user.json';
-
-const TOTAL_AMOUNT = dummyData.portfolio.total_amount;
-const AMOUNT_INVESTED = dummyData.portfolio.amount_invested;
-const DIFFERENCE = TOTAL_AMOUNT - AMOUNT_INVESTED;
-const PCT_CHANGE = DIFFERENCE / TOTAL_AMOUNT;
+import { useSession } from '@/context/SessionProvider';
 
 export default function TotalReturnsCard() {
+  const { session, userData } = useSession();
+
+  if (!session) return null;
+  if (!userData) return null;
+
+  const TOTAL_AMOUNT = userData.portfolio.balance;
+  const PRINCIPAL = userData.portfolio.principal;
+  const DIFFERENCE = TOTAL_AMOUNT - PRINCIPAL;
+  const PCT_CHANGE = DIFFERENCE / TOTAL_AMOUNT;
+
   return (
     <div className=" h-full p-5 border-2 border-gray-200 rounded-2xl bg-white">
       <div className="flex flex-col gap-2 ">

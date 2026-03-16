@@ -4,6 +4,7 @@ import {
 } from '@/types/InvestmentFormProps';
 import { formatCurrencyFull } from '@/utils/formatCurrency';
 import dummyData from '@/dummy-data/dummy-user.json';
+import { useSession } from '@/context/SessionProvider';
 
 function breakLine() {
   return <div className="w-full h-px bg-gray-200 my-3" />;
@@ -13,6 +14,14 @@ export default function InvestmentSummaryCard({
   addAmount,
   frequency,
 }: InvestmentSummaryProps) {
+  const { session, userData } = useSession();
+  if (!session) return null;
+  if (!userData) return null;
+
+  const TOTAL_AMOUNT = userData.portfolio.balance;
+  // const PRINCIPAL = userData.portfolio.principal;
+  // const DIFFERENCE = TOTAL_AMOUNT - PRINCIPAL;
+  // const PCT_CHANGE = DIFFERENCE / TOTAL_AMOUNT;
   return (
     <div className="bg-linear-to-br from-tertiary to-primary  rounded-2xl p-5 text-white text-sm">
       <p className="text-sm font-semibold mb-5">INVESTMENT SUMMARY</p>
@@ -47,7 +56,7 @@ export default function InvestmentSummaryCard({
       <div className="flex flex-row justify-between items-center">
         <p>New Balance</p>
         <h1 className="font-semibold text-3xl">
-          {formatCurrencyFull(addAmount + dummyData.portfolio.total_amount)}
+          {formatCurrencyFull(addAmount + TOTAL_AMOUNT)}
         </h1>
       </div>
     </div>
